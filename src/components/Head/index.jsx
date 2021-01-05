@@ -103,15 +103,18 @@ const menuData = [
 
 // eslint-disable-next-line arrow-body-style
 const Header = () => {
-  const [shrink, setShrink] = useState(!!window.scrollY);
+  const init = typeof window !== 'undefined' ? window.scrollY : 0;
+  const [shrink, setShrink] = useState(!!init);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setShrink(!!window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        setShrink(!!window.scrollY);
+      };
+      window.addEventListener('scroll', handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, []);
 
   return (
