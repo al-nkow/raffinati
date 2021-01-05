@@ -3,6 +3,8 @@ import Header from '../components/Head';
 import Main from '../components/Main';
 import Catalog from '../components/Catalog';
 import Work from '../components/Work';
+import Partners from '../components/Partners';
+import Footer from '../components/Footer';
 // import styled from 'styled-components';
 // import { Link } from 'gatsby';
 
@@ -27,6 +29,8 @@ const IndexPage = () => (
     <Main />
     <Catalog />
     <Work />
+    <Partners />
+    <Footer />
     {/* <Layout>
       <SEO title="Home" />
       <h1>Hi people</h1>
