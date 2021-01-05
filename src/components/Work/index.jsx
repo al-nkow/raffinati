@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import AccBlock from '../AccBlock';
+import Team from '../Team';
+import Review from '../Review';
+import Contacts from '../Contacts';
 import { contentWidth, text } from '../../config';
 
 import icon1 from './images/icon1.svg';
@@ -50,16 +53,16 @@ const Work = () => (
       <SomeCmp>Раздел в процессе наполнения</SomeCmp>
     </AccBlock>
     <AccBlock title="Салоны в Москве и С-Петербурге" icon={icon3}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      <Contacts />
     </AccBlock>
     <AccBlock title="Выезд в пределах города или за город" icon={icon4}>
       <SomeCmp>Раздел в процессе наполнения</SomeCmp>
     </AccBlock>
     <AccBlock title="Наша команда" icon={icon5}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      <Team />
     </AccBlock>
     <AccBlock title="Отзывы" icon={icon6}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      <Review />
     </AccBlock>
   </Wrap>
 );
