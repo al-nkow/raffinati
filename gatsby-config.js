@@ -1,9 +1,9 @@
 module.exports = {
   pathPrefix: '/raffinati',
   siteMetadata: {
-    title: 'Gatsby Default Starter',
-    description: 'Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.',
-    author: '@gatsbyjs',
+    title: 'Raffinati',
+    description: 'Производство штор и карнизов от стандартных до эксклюзивных.',
+    author: 'ITS',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

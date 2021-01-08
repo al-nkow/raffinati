@@ -14,7 +14,7 @@ import '@fontsource/playfair-display/400-italic.css';
 
 // import Layout from '../components/layout';
 // import Image from '../components/image';
-// import SEO from '../components/seo';
+import SEO from '../components/seo';
 
 // const Block = styled.div`
 //   width: 100px;
@@ -23,8 +23,19 @@ import '@fontsource/playfair-display/400-italic.css';
 //   border-radius: 4px;
 // `;
 
+// ========= TODO =======================
+/*
+function preloadImage(url)
+{
+    var img=new Image();
+    img.src=url;
+}
+*/
+// ======================================
+
 const IndexPage = () => (
   <>
+    <SEO title="Home" />
     <Header />
     <Main />
     <Catalog />
@@ -32,7 +43,6 @@ const IndexPage = () => (
     <Partners />
     <Footer />
     {/* <Layout>
-      <SEO title="Home" />
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site. 123</p>
       <p>Now go build something great.</p>
