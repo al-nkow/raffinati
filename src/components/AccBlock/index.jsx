@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { passion, text, light as lightColor } from '../../config';
 
@@ -53,11 +53,19 @@ const AccBlock = ({
   title,
   icon,
   light,
+  id,
+  scrollTo,
 }) => {
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+    if (id && scrollTo && scrollTo === id) {
+      setOpen(true);
+    }
+  }, [scrollTo]);
+
   return (
-    <div>
+    <div id={id}>
       <Head light={light}>
         <Image src={icon} alt="" />
         {title}

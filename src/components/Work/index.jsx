@@ -1,3 +1,4 @@
+/* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
 import AccBlock from '../AccBlock';
@@ -37,34 +38,36 @@ const Title = styled.h2`
   }
 `;
 
-const Work = () => (
-  <Wrap>
-    <Title>
-      Как
-      &nbsp;
-      <i>мы</i>
-      &nbsp;
-      работаем
-    </Title>
-    <AccBlock title="Онлайн-заказ" icon={icon1}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-    </AccBlock>
-    <AccBlock title="Онлайн-консультация" icon={icon2}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-    </AccBlock>
-    <AccBlock title="Салоны в Москве и С-Петербурге" icon={icon3}>
-      <Contacts />
-    </AccBlock>
-    <AccBlock title="Выезд в пределах города или за город" icon={icon4}>
-      <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-    </AccBlock>
-    <AccBlock title="Наша команда" icon={icon5}>
-      <Team />
-    </AccBlock>
-    <AccBlock title="Отзывы" icon={icon6}>
-      <Review />
-    </AccBlock>
-  </Wrap>
-);
+const Work = ({ scrollTo }) => {
+  return (
+    <Wrap>
+      <Title>
+        Как
+        &nbsp;
+        <i>мы</i>
+        &nbsp;
+        работаем
+      </Title>
+      <AccBlock title="Онлайн-заказ" icon={icon1}>
+        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      </AccBlock>
+      <AccBlock title="Онлайн-консультация" icon={icon2}>
+        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      </AccBlock>
+      <AccBlock id="contacts" scrollTo={scrollTo} title="Салоны в Москве и С-Петербурге" icon={icon3}>
+        <Contacts />
+      </AccBlock>
+      <AccBlock title="Выезд в пределах города или за город" icon={icon4}>
+        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
+      </AccBlock>
+      <AccBlock title="Наша команда" icon={icon5}>
+        <Team />
+      </AccBlock>
+      <AccBlock title="Отзывы" icon={icon6}>
+        <Review />
+      </AccBlock>
+    </Wrap>
+  );
+};
 
 export default Work;

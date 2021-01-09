@@ -59,28 +59,32 @@ const corniceOpts = [
 ];
 
 const Catalog = () => (
-  <Wrap>
+  <Wrap id="catalog">
     <Block
       title="Римская<br /><i>штора</i>"
       description="Надежная, функциональная<br />и простая в использовании<br />римская штора."
       options={curtainOpts}
+      open="rome"
     />
     <Block
       swap
       title="Тюль"
       description="Надежная, функциональная<br />и простая в использовании<br />тюль."
       options={tulleOpts}
+      open="tulle"
     />
     <Block
       title="Партьеры"
       description="Надежная, функциональная<br />и простая в использовании<br />партьеры."
       options={portOpts}
+      open="portiere"
     />
     <Block
       swap
       title="Карнизы"
       description="Надежная, функциональная<br />и простая в использовании<br />карнизы."
       options={corniceOpts}
+      open="cornice"
     />
   </Wrap>
 );

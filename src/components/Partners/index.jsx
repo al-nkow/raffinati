@@ -42,7 +42,7 @@ const SomeCmp = styled.div`
 const Partners = () => (
   <Wrap>
     <Inner>
-      <Title>
+      <Title id="partners">
         Сотрудничество
         <br />
         <i>с дизайнерами</i>

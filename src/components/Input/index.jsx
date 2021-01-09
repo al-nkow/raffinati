@@ -8,7 +8,7 @@ const TextField = styled.input`
   border-radius: 2px;
   text-shadow: none;
   box-shadow: none;
-  min-width: 320px;
+  min-width: 360px;
   font-size: 16px;
 `;
 

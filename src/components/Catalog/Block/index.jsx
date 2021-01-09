@@ -2,6 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 import { grey, passion, light } from '../../../config';
 
 const Image = styled.img`
@@ -83,7 +84,7 @@ const Description = styled.div`
   margin-bottom: 46px;
 `;
 
-const Button = styled.div`
+const Button = styled(Link)`
   transition: all 0.2s ease;
   font-size: 14px;
   padding: 15px 30px;
@@ -92,6 +93,7 @@ const Button = styled.div`
   color: ${light};
   display: inline-block;
   cursor: pointer;
+  text-decoration: none;
   &:hover {
     opacity: 0.9;
   }
@@ -102,6 +104,7 @@ const Block = ({
   title,
   description,
   options,
+  open,
 }) => {
   const [active, setActive] = useState(0);
 
@@ -121,7 +124,7 @@ const Block = ({
         </Controls>
         <Title dangerouslySetInnerHTML={{ __html: title }} />
         <Description dangerouslySetInnerHTML={{ __html: description }} />
-        <Button>Рассчитать стоимость</Button>
+        <Button to={`/calculator?open=${open}`}>Рассчитать стоимость</Button>
       </Col>
       <Col swap={swap}>
         <Image src={options[active].image} alt="" />

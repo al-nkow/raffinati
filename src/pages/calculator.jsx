@@ -4,11 +4,11 @@ import Header from '../components/Head';
 import Footer from '../components/Footer';
 import Caculator from '../components/Calculator';
 
-const CalcPage = () => (
+const CalcPage = ({ location }) => (
   <>
     <SEO title="Калькулятор" />
     <Header />
-    <Caculator />
+    <Caculator location={location} />
     <Footer />
   </>
 );
