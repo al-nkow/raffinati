@@ -21,6 +21,8 @@ module.exports = {
     'no-console': 'off',
     'react/jsx-one-expression-per-line': 'off',
     'object-curly-newline': 'off',
+    'react/prop-types': 'off',
+    'arrow-parens': 'off',
   },
 };
 

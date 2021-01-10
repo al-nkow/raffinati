@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
 import KsInfo from '../KsInfo';
+import { portiereOptions } from '../../config';
 
 import {
   Head,
@@ -17,20 +18,12 @@ import {
   RadioBtn,
 } from '../Shared';
 
-import Tulle from './images/tulle.png';
-import Blackout from './images/blackout.png';
-import Cloth from './images/cloth.png';
-
 const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
 const CORNICE_DEC_PRICE = 2000; // Карниз декоративный - метр
 const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
-const BLACKOUT_PRICE = 1900; // Блэкаут погонный метр
-const LIGHT_PRICE = 1600; // Лёгкие погонный метр
-const PIDOR_PRICE = 19347; // 3й вариант погонный метр
-
-const options = [BLACKOUT_PRICE, LIGHT_PRICE, PIDOR_PRICE];
+const options = portiereOptions.map(i => i.price);
 
 const PortiereTab = ({ option }) => {
   const [values, setValues] = useState({
@@ -78,30 +71,17 @@ const PortiereTab = ({ option }) => {
         <i>материал</i>
       </Head>
       <SelectBase>
-        <Fabric
-          url={Tulle}
-          onClick={() => setBase(BLACKOUT_PRICE)}
-          active={values.base === BLACKOUT_PRICE}
-        >
-          Блэкаут
-          <Cost>Стоимость<br />{BLACKOUT_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Blackout}
-          onClick={() => setBase(LIGHT_PRICE)}
-          active={values.base === LIGHT_PRICE}
-        >
-          Легкие
-          <Cost>Стоимость<br />{LIGHT_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Cloth}
-          onClick={() => setBase(PIDOR_PRICE)}
-          active={values.base === PIDOR_PRICE}
-        >
-          Пидорские
-          <Cost>Стоимость<br />{PIDOR_PRICE} руб/погонный метр</Cost>
-        </Fabric>
+        {portiereOptions.map((item) => (
+          <Fabric
+            key={item.id}
+            url={item.image}
+            onClick={() => setBase(item.price)}
+            active={values.base === item.price}
+          >
+            {item.title}
+            <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
+          </Fabric>
+        ))}
       </SelectBase>
       {base ? (
         <>

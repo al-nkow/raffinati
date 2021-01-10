@@ -55,10 +55,10 @@ const Calculator = ({ location }) => {
       </Back>
       <Tabs active={active} setActive={setActive} />
       <TabContent>
-        {active === 'rome' ? <Rome option={option} /> : null}
-        {active === 'tulle' ? <Tulle option={option} /> : null}
-        {active === 'portiere' ? <Portiere option={option} /> : null}
-        {active === 'cornice' ? <Cornice option={option} /> : null}
+        {active === 'rome' ? <Rome option={open === 'rome' && option} /> : null}
+        {active === 'tulle' ? <Tulle option={open === 'tulle' && option} /> : null}
+        {active === 'portiere' ? <Portiere option={open === 'portiere' && option} /> : null}
+        {active === 'cornice' ? <Cornice option={open === 'cornice' && option} /> : null}
       </TabContent>
     </Wrap>
   );

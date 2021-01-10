@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
@@ -114,7 +112,7 @@ const Block = ({
         <Controls>
           {options.map((item, index) => (
             <ControlItem
-              key={index}
+              key={item.id}
               active={index === active}
               onClick={() => setActive(index)}
             >

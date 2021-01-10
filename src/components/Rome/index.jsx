@@ -1,21 +1,14 @@
 import React, { useState } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
-
 import { Head, SelectBase, Fabric, Label, FormGroup, Result, Cost, Calculation } from '../Shared';
+import { romeOptions } from '../../config';
 
-import Tulle from './images/tulle.png';
-import Blackout from './images/blackout.png';
-import Cloth from './images/cloth.png';
-
-const TULLE_PRICE = 1300; // Тюль погонный метр
-const BLACKOUT_PRICE = 1900; // Блэкаут погонный метр
-const CLOTH_PRICE = 1700; // Ткань погонный метр
 const CORNICE_PRICE = 2200; // Карниз метр
 const TAPE_PRICE = 150; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
-const options = [TULLE_PRICE, BLACKOUT_PRICE, CLOTH_PRICE];
+const options = romeOptions.map(i => i.price);
 
 const Rome = ({ option }) => {
   const [values, setValues] = useState({
@@ -58,30 +51,17 @@ const Rome = ({ option }) => {
         <i>материал</i>
       </Head>
       <SelectBase>
-        <Fabric
-          url={Tulle}
-          onClick={() => setBase(TULLE_PRICE)}
-          active={values.base === TULLE_PRICE}
-        >
-          Тюль
-          <Cost>Стоимость<br />{TULLE_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Blackout}
-          onClick={() => setBase(BLACKOUT_PRICE)}
-          active={values.base === BLACKOUT_PRICE}
-        >
-          Блэкаут
-          <Cost>Стоимость<br />{BLACKOUT_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Cloth}
-          onClick={() => setBase(CLOTH_PRICE)}
-          active={values.base === CLOTH_PRICE}
-        >
-          Ткань
-          <Cost>Стоимость<br />{CLOTH_PRICE} руб/погонный метр</Cost>
-        </Fabric>
+        {romeOptions.map((item) => (
+          <Fabric
+            key={item.id}
+            url={item.image}
+            onClick={() => setBase(item.price)}
+            active={values.base === item.price}
+          >
+            {item.title}
+            <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
+          </Fabric>
+        ))}
       </SelectBase>
       {base ? (
         <>

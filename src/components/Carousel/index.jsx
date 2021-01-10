@@ -87,7 +87,7 @@ const slides = [
   },
   {
     id: 2,
-    title: 'Корниз',
+    title: 'Карниз',
     url: portiere1,
     target: 'cornice',
   },
@@ -105,7 +105,7 @@ const slides = [
   },
   {
     id: 5,
-    title: 'Корниз',
+    title: 'Карниз',
     url: cornice,
     target: 'cornice',
   },

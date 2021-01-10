@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
 import KsInfo from '../KsInfo';
+import { tulleOptions } from '../../config';
 
 import {
   Head,
@@ -17,20 +18,12 @@ import {
   RadioBtn,
 } from '../Shared';
 
-import Tulle from './images/tulle.png';
-import Blackout from './images/blackout.png';
-import Cloth from './images/cloth.png';
-
 const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
 const CORNICE_DEC_PRICE = 2000; // Карниз декоративный - метр
 const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
-const VEIL_PRICE = 600; // Вуаль погонный метр
-const CREPE_PRICE = 1900; // Креп погонный метр
-const LINEN_PRICE = 1300; // Лён погонный метр
-
-const options = [VEIL_PRICE, CREPE_PRICE, LINEN_PRICE];
+const options = tulleOptions.map(i => i.price);
 
 const TulleTab = ({ option }) => {
   const [values, setValues] = useState({
@@ -78,30 +71,17 @@ const TulleTab = ({ option }) => {
         <i>материал</i>
       </Head>
       <SelectBase>
-        <Fabric
-          url={Tulle}
-          onClick={() => setBase(VEIL_PRICE)}
-          active={values.base === VEIL_PRICE}
-        >
-          Вуаль
-          <Cost>Стоимость<br />{VEIL_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Blackout}
-          onClick={() => setBase(CREPE_PRICE)}
-          active={values.base === CREPE_PRICE}
-        >
-          Креп
-          <Cost>Стоимость<br />{CREPE_PRICE} руб/погонный метр</Cost>
-        </Fabric>
-        <Fabric
-          url={Cloth}
-          onClick={() => setBase(LINEN_PRICE)}
-          active={values.base === LINEN_PRICE}
-        >
-          Лён
-          <Cost>Стоимость<br />{LINEN_PRICE} руб/погонный метр</Cost>
-        </Fabric>
+        {tulleOptions.map((item) => (
+          <Fabric
+            key={item.id}
+            url={item.image}
+            onClick={() => setBase(item.price)}
+            active={values.base === item.price}
+          >
+            {item.title}
+            <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
+          </Fabric>
+        ))}
       </SelectBase>
       {base ? (
         <>
