@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import imgg from './images/slider.png';
-import imgh from './images/slider1.png';
+
+import cornice from './images/cornice.png';
+import portiere1 from './images/portiere1.png';
+import portiere2 from './images/portiere2.png';
+import rome from './images/rome.png';
+import tulle1 from './images/tulle1.png';
+import tulle2 from './images/tulle2.png';
 
 const slideSize = 200;
 
 const Wrap = styled.div`
-  // border: 1px solid red;
-  min-height: 100px;
   width: ${slideSize * 5}px;
   margin: 0 auto;
 `;
@@ -24,8 +27,8 @@ const Slide = styled.div`
   min-width: ${slideSize}px;
   width: ${slideSize}px;
   height: ${slideSize}px;
-  // border: 1px solid blue;
   font-size: 20px;
+  transition: all 0.2s ease;
   img {
     border-radius: 2px;
     display: block;
@@ -37,6 +40,19 @@ const Slide = styled.div`
     opacity: 0.8;
     transition: all 0.2s ease;
   }
+  span {
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    text-align: center;
+    font-size: 44px;
+    opacity: 0;
+    transition: all 0.2s ease;
+    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
   ${(props) => (props.active ? `
     background: #dedede;
     img {
@@ -44,6 +60,9 @@ const Slide = styled.div`
       z-index: 4;
       transform: translate(-50%, -50%) scale(1.6);
       box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    }
+    span {
+      opacity: 1;
     }
   ` : '')}
   ${(props) => (props.siblings ? `
@@ -54,48 +73,53 @@ const Slide = styled.div`
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     }
   ` : '')} 
+  ${({ hide }) => (hide ? `
+    opacity: 0.2;
+  ` : '')}
 `;
 
 const slides = [
   {
     id: 1,
-    title: 1,
-    url: imgh,
+    title: 'Тюль',
+    url: tulle1,
+    target: 'tulle',
   },
   {
     id: 2,
-    title: 2,
-    url: imgg,
+    title: 'Корниз',
+    url: portiere1,
+    target: 'cornice',
   },
   {
     id: 3,
-    title: 3,
-    url: imgh,
+    title: 'Римская штора',
+    url: rome,
+    target: 'rome',
   },
   {
     id: 4,
-    title: 4,
-    url: imgg,
+    title: 'Тюль',
+    url: tulle2,
+    target: 'tulle',
   },
   {
     id: 5,
-    title: 5,
-    url: imgh,
+    title: 'Корниз',
+    url: cornice,
+    target: 'cornice',
   },
   {
     id: 6,
-    title: 6,
-    url: imgg,
+    title: 'Тюль',
+    url: tulle2,
+    target: 'tulle',
   },
   {
     id: 7,
-    title: 7,
-    url: imgh,
-  },
-  {
-    id: 8,
-    title: 8,
-    url: imgg,
+    title: 'Портьера',
+    url: portiere2,
+    target: 'portiere',
   },
 ];
 
@@ -103,8 +127,12 @@ const Carousel = () => {
   const [move, setMove] = useState(0);
   const [active, setActive] = useState(3);
 
-  const clickItem = (n) => {
-    if (n === active) return;
+  const clickItem = (n, targetId) => {
+    if (n === active) {
+      const element = document.getElementById(targetId);
+      if (typeof window !== 'undefined' && element) element.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
 
     setMove(-(n - 3) * slideSize);
     setActive(n);
@@ -116,11 +144,13 @@ const Carousel = () => {
         {slides.map((item, index) => (
           <Slide
             key={item.id}
+            hide={index < active - 3 || index > active + 1}
             active={active === index + 1}
             siblings={index === active - 2 || index === active}
-            onClick={() => clickItem(index + 1)}
+            onClick={() => clickItem(index + 1, item.target)}
           >
             <img src={item.url} alt="" />
+            <span>{item.title}</span>
           </Slide>
         ))}
       </Slider>

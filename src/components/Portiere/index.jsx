@@ -30,9 +30,11 @@ const BLACKOUT_PRICE = 1900; // Блэкаут погонный метр
 const LIGHT_PRICE = 1600; // Лёгкие погонный метр
 const PIDOR_PRICE = 19347; // 3й вариант погонный метр
 
-const PortiereTab = () => {
+const options = [BLACKOUT_PRICE, LIGHT_PRICE, PIDOR_PRICE];
+
+const PortiereTab = ({ option }) => {
   const [values, setValues] = useState({
-    base: null,
+    base: options[option],
     width: null,
     waves: null,
     cornice: false,

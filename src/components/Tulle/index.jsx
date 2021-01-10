@@ -30,9 +30,11 @@ const VEIL_PRICE = 600; // Вуаль погонный метр
 const CREPE_PRICE = 1900; // Креп погонный метр
 const LINEN_PRICE = 1300; // Лён погонный метр
 
-const TulleTab = () => {
+const options = [VEIL_PRICE, CREPE_PRICE, LINEN_PRICE];
+
+const TulleTab = ({ option }) => {
   const [values, setValues] = useState({
-    base: null,
+    base: options[option],
     width: null,
     waves: null,
     cornice: false,

@@ -1,7 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { contentWidth } from '../../config';
-import blockImg from './images/blockImg.png';
+
+import romeBlackout from './images/romeBlackout.png';
+import romeTulle from './images/romeTulle.png';
+import romeCloth from './images/romeCloth.png';
+import tulleVeil from './images/tulleVeil.png';
+import tulleCrepe from './images/tulleCrepe.png';
+import tulleLinen from './images/tulleLinen.png';
+import portiereBlackout from './images/portiereBlackout.png';
+import portiereLight from './images/portiereLight.png';
+import portiereVeil from './images/portiereVeil.png';
+import cornice1 from './images/cornice1.png';
+import cornice2 from './images/cornice2.png';
 
 import Block from './Block';
 
@@ -13,78 +24,86 @@ const Wrap = styled.div`
 const curtainOpts = [
   {
     title: 'Тюль',
-    image: blockImg,
+    image: romeTulle,
   },
   {
     title: 'Блэкаут',
-    image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+    image: romeBlackout,
   },
   {
     title: 'Ткань',
-    image: 'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg',
+    image: romeCloth,
   },
 ];
 
 const tulleOpts = [
   {
     title: 'Вуаль',
-    image: blockImg,
+    image: tulleVeil,
   },
   {
-    title: 'Лёгкие',
-    image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+    title: 'Креп',
+    image: tulleCrepe,
+  },
+  {
+    title: 'Лён',
+    image: tulleLinen,
   },
 ];
 
 const portOpts = [
   {
-    title: 'Вуаль',
-    image: blockImg,
+    title: 'Блэкаут',
+    image: portiereBlackout,
   },
   {
     title: 'Лёгкие',
-    image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+    image: portiereLight,
+  },
+  {
+    title: 'Вуаль',
+    image: portiereVeil,
   },
 ];
 
 const corniceOpts = [
   {
     title: 'Вариант 1',
-    image: blockImg,
+    image: cornice1,
   },
   {
     title: 'Вариант 2',
-    image: 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg',
+    image: cornice2,
   },
 ];
 
 const Catalog = () => (
   <Wrap id="catalog">
     <Block
+      id="rome"
       title="Римская<br /><i>штора</i>"
       description="Надежная, функциональная<br />и простая в использовании<br />римская штора."
       options={curtainOpts}
-      open="rome"
     />
     <Block
+      id="tulle"
       swap
       title="Тюль"
       description="Надежная, функциональная<br />и простая в использовании<br />тюль."
       options={tulleOpts}
-      open="tulle"
     />
     <Block
+      id="portiere"
       title="Партьеры"
       description="Надежная, функциональная<br />и простая в использовании<br />партьеры."
       options={portOpts}
-      open="portiere"
     />
     <Block
+      id="cornice"
       swap
       title="Карнизы"
       description="Надежная, функциональная<br />и простая в использовании<br />карнизы."
       options={corniceOpts}
-      open="cornice"
     />
   </Wrap>
 );

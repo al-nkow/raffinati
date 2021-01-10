@@ -42,7 +42,8 @@ const TabContent = styled.div`
 const Calculator = ({ location }) => {
   const searchParams = new URLSearchParams(location.search);
   const open = searchParams.get('open');
-  const [active, setActive] = useState(open);
+  const option = searchParams.get('option');
+  const [active, setActive] = useState(open || 'rome');
 
   return (
     <Wrap>
@@ -54,10 +55,10 @@ const Calculator = ({ location }) => {
       </Back>
       <Tabs active={active} setActive={setActive} />
       <TabContent>
-        {active === 'rome' ? <Rome /> : null}
-        {active === 'tulle' ? <Tulle /> : null}
-        {active === 'portiere' ? <Portiere /> : null}
-        {active === 'cornice' ? <Cornice /> : null}
+        {active === 'rome' ? <Rome option={option} /> : null}
+        {active === 'tulle' ? <Tulle option={option} /> : null}
+        {active === 'portiere' ? <Portiere option={option} /> : null}
+        {active === 'cornice' ? <Cornice option={option} /> : null}
       </TabContent>
     </Wrap>
   );

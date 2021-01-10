@@ -104,12 +104,12 @@ const Block = ({
   title,
   description,
   options,
-  open,
+  id,
 }) => {
   const [active, setActive] = useState(0);
 
   return (
-    <Wrap swap={swap}>
+    <Wrap swap={swap} id={id}>
       <Col swap={swap}>
         <Controls>
           {options.map((item, index) => (
@@ -124,7 +124,7 @@ const Block = ({
         </Controls>
         <Title dangerouslySetInnerHTML={{ __html: title }} />
         <Description dangerouslySetInnerHTML={{ __html: description }} />
-        <Button to={`/calculator?open=${open}`}>Рассчитать стоимость</Button>
+        <Button to={`/calculator?open=${id}&option=${active}`}>Рассчитать стоимость</Button>
       </Col>
       <Col swap={swap}>
         <Image src={options[active].image} alt="" />

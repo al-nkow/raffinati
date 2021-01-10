@@ -15,9 +15,11 @@ const CORNICE_PRICE = 2200; // Карниз метр
 const TAPE_PRICE = 150; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
-const Rome = () => {
+const options = [TULLE_PRICE, BLACKOUT_PRICE, CLOTH_PRICE];
+
+const Rome = ({ option }) => {
   const [values, setValues] = useState({
-    base: null,
+    base: options[option],
     width: null,
     height: null,
     cornice: false,

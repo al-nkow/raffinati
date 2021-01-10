@@ -6,9 +6,9 @@ import { contentWidth, passion } from '../../config';
 const Wrap = styled.div`
   width: ${contentWidth}px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding-top: 150px;
+  padding-bottom: 300px;
   overflow: hidden;
-  padding-bottom: 200px;
 `;
 
 const H1 = styled.h1`

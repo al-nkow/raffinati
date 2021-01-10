@@ -15,10 +15,12 @@ import {
 const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
 const CORNICE_DEC_PRICE = 2000; // Карниз декоративный - метр
 
-const PortiereTab = () => {
+const options = [CORNICE_REG_PRICE, CORNICE_DEC_PRICE];
+
+const PortiereTab = ({ option }) => {
   const [values, setValues] = useState({
     width: null,
-    corniceBase: CORNICE_REG_PRICE,
+    corniceBase: options[option || 0],
   });
 
   const setWidth = (width) => {
