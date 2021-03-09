@@ -1,21 +1,38 @@
 import React, { useState } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
-import { Head, SelectBase, Fabric, Label, FormGroup, Result, Cost, Calculation } from '../Shared';
+import {
+  Head,
+  SelectBase,
+  Fabric,
+  Label,
+  FormGroup,
+  Result,
+  Cost,
+  Calculation,
+  RadioGroup,
+  RadioLabel,
+  RadioBtn,
+  Button,
+} from '../Shared';
 import { romeOptions } from '../../config';
+import OrderModal from '../OrderModal';
 
 const CORNICE_PRICE = 2200; // Карниз метр
-const TAPE_PRICE = 150; // Шторная лента цена за метр
+const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
 const options = romeOptions.map(i => i.price);
 
 const Rome = ({ option }) => {
+  const [showOrderModal, toggleModal] = useState(false);
+
   const [values, setValues] = useState({
     base: options[option],
     width: null,
     height: null,
     cornice: false,
+    type: 'standart',
   });
 
   const setBase = (price) => {
@@ -34,7 +51,11 @@ const Rome = ({ option }) => {
     setValues({ ...values, cornice: +event.target.checked });
   };
 
-  const { base, width, height, cornice } = values;
+  const setType = (type) => {
+    setValues({ ...values, type });
+  };
+
+  const { base, width, height, cornice, type } = values;
 
   const materialCost = +(base * width).toFixed(2);
   const sewingCost = +(base * width * height).toFixed(2);
@@ -45,10 +66,32 @@ const Rome = ({ option }) => {
 
   return (
     <div>
+      <RadioGroup>
+        <RadioLabel>
+          <RadioBtn checked={type === 'standart'}>
+            <input
+              type="radio"
+              value="standart"
+              checked={type === 'standart'}
+              onChange={() => setType('standart')}
+            />
+          </RadioBtn>
+          Стандарт
+        </RadioLabel>
+        <RadioLabel>
+          <RadioBtn checked={type === 'order'}>
+            <input
+              type="radio"
+              value="order"
+              checked={type === 'order'}
+              onChange={() => setType('order')}
+            />
+          </RadioBtn>
+          Под заказ
+        </RadioLabel>
+      </RadioGroup>
       <Head>
-        1. Выберите
-        &nbsp;
-        <i>материал</i>
+        1. Выберите <i>материал</i>
       </Head>
       <SelectBase>
         {romeOptions.map((item) => (
@@ -66,9 +109,7 @@ const Rome = ({ option }) => {
       {base ? (
         <>
           <Head>
-            2. Укажите
-            &nbsp;
-            <i>размеры</i>
+            2. Укажите <i>размеры</i>
           </Head>
           <FormGroup>
             <Label>Длина карниза (ширина шторы)</Label>
@@ -97,8 +138,15 @@ const Rome = ({ option }) => {
               </Calculation>
               <div>
                 Итого: {totalPrice} ₽
+                <br />
+                <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
               </div>
             </Result>
+          ) : null}
+          {showOrderModal ? (
+            <OrderModal close={() => toggleModal(false)}>
+              Римская штора {width}/{height} м {cornice ? '+ корниз' : ''} стоимостью {totalPrice} ₽
+            </OrderModal>
           ) : null}
         </>
       ) : null}

@@ -7,6 +7,7 @@
   "dependencies": {
     "@fontsource/playfair-display": "^4.1.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "formik": "^2.2.6",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.5.0",
     "gatsby-plugin-manifest": "^2.6.1",

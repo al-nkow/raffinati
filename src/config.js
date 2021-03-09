@@ -17,6 +17,7 @@ export const grey = '#767676';
 export const lightGrey = '#F4F0ED';
 export const light = '#fdfaf7';
 export const text = '#333333';
+export const red = '#e82727';
 
 export const gray74 = '#bdbdbd';
 export const gray31 = '#4f4f4f';

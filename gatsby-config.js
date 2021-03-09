@@ -1,5 +1,5 @@
 module.exports = {
-  pathPrefix: '/raffinati',
+  pathPrefix: '/raffinati', // удалить / перед деплоем на gh-pages - 'raffinati'
   siteMetadata: {
     title: 'Raffinati',
     description: 'Производство штор и карнизов от стандартных до эксклюзивных.',

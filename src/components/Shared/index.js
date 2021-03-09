@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { passion, grey } from '../../config';
+import { passion, grey, light } from '../../config';
 
 export const RadioGroup = styled.div`
-  margin-bottom; 20px;
+  margin-bottom: 20px;
 `;
 
 export const RadioLabel = styled.label`
@@ -51,6 +51,7 @@ export const Head = styled.h2`
   font-weight: 400;
   i {
     font-style: italic;
+    color: ${passion};
   }
 `;
 
@@ -91,6 +92,10 @@ export const Fabric = styled.div`
   &:hover {
     border-color: ${passion};
   }
+  ${({ cap }) => (cap ? `
+    cursor: default;
+    opacity: 0;
+  ` : '')}
 `;
 
 export const Label = styled.label`
@@ -125,11 +130,27 @@ export const Cost = styled.div`
 `;
 
 export const Calculation = styled.div`
-  font-size: 16px;
+  font-size: 20px;
   text-align: left;
-  line-height: 24px;
+  line-height: 28px;
   font-family: 'Playfair Display';
   font-weight: 400;
   font-style: italic;
   color: ${grey};
+`;
+
+export const Button = styled.div`
+  margin-top: 25px;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  padding: 15px 30px;
+  background: ${passion};
+  text-transform: uppercase;
+  color: ${light};
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.9;
+  }
 `;

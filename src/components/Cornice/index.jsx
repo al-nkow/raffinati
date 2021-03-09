@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Input from '../Input';
 
 import {
+  SelectBase,
+  Fabric,
+  Cost,
   Head,
   Label,
   FormGroup,
@@ -19,7 +22,7 @@ const options = corniceOptions.map(i => i.price);
 const PortiereTab = ({ option }) => {
   const [values, setValues] = useState({
     width: null,
-    corniceBase: options[option || 0],
+    corniceBase: options[option],
   });
 
   const setWidth = (width) => {
@@ -36,14 +39,35 @@ const PortiereTab = ({ option }) => {
   return (
     <div>
       <Head>
-        1. Укажите <i>размеры</i> карниза
+        1. Выберите <i>вариант</i> карниза
       </Head>
-      <FormGroup>
-        <Label>Длина карниза (ширина шторы)</Label>
-        <br />
-        <Input changed={setWidth} placeholder="Укажите ширину в метрах" />
-      </FormGroup>
-      <RadioGroup>
+      <SelectBase>
+        {corniceOptions.map((item) => (
+          <Fabric
+            key={item.id}
+            url={item.image}
+            onClick={() => setCorniceBase(item.price)}
+            active={values.corniceBase === item.price}
+          >
+            {item.title}
+            <Cost>Стоимость<br />{item.price} руб/метр</Cost>
+          </Fabric>
+        ))}
+        <Fabric cap />
+      </SelectBase>
+      {corniceBase ? (
+        <>
+          <Head>
+            2. Укажите <i>размеры</i> карниза
+          </Head>
+          <FormGroup>
+            <Label>Длина карниза (ширина шторы)</Label>
+            <br />
+            <Input changed={setWidth} placeholder="Укажите ширину в метрах" />
+          </FormGroup>
+        </>
+      ) : null}
+      {/* <RadioGroup>
         {corniceOptions.map(item => (
           <RadioLabel key={item.id}>
             <RadioBtn checked={corniceBase === item.price}>
@@ -57,7 +81,7 @@ const PortiereTab = ({ option }) => {
             {item.title} ({item.price} руб/м)
           </RadioLabel>
         ))}
-      </RadioGroup>
+      </RadioGroup> */}
       {width ? (
         <Result>
           <Calculation>

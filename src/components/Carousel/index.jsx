@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 
-import cornice from './images/cornice.png';
-import portiere1 from './images/portiere1.png';
-import portiere2 from './images/portiere2.png';
-import rome from './images/rome.png';
-import tulle1 from './images/tulle1.png';
-import tulle2 from './images/tulle2.png';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
 
 const slideSize = 200;
 
@@ -29,7 +25,10 @@ const Slide = styled.div`
   height: ${slideSize}px;
   font-size: 20px;
   transition: all 0.2s ease;
-  img {
+
+
+
+  .gatsby-image-wrapper {
     border-radius: 2px;
     display: block;
     width: 90%;
@@ -40,6 +39,22 @@ const Slide = styled.div`
     opacity: 0.8;
     transition: all 0.2s ease;
   }
+
+  // img {
+  //   border-radius: 2px;
+  //   display: block;
+  //   width: 90%;
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 50%;
+  //   transform: translate(-50%, -50%) scale(0.6);
+  //   opacity: 0.8;
+  //   transition: all 0.2s ease;
+  // }
+
+
+
+
   span {
     z-index: 10;
     position: absolute;
@@ -55,7 +70,7 @@ const Slide = styled.div`
   }
   ${(props) => (props.active ? `
     background: #dedede;
-    img {
+    .gatsby-image-wrapper {
       opacity: 1;
       z-index: 4;
       transform: translate(-50%, -50%) scale(1.6);
@@ -66,7 +81,7 @@ const Slide = styled.div`
     }
   ` : '')}
   ${(props) => (props.siblings ? `
-    img {
+    .gatsby-image-wrapper {
       opacity: 1;
       z-index: 3;
       transform: translate(-50%, -50%) scale(1.2);
@@ -78,54 +93,91 @@ const Slide = styled.div`
   ` : '')}
 `;
 
-const slides = [
-  {
-    id: 1,
-    title: 'Тюль',
-    url: tulle1,
-    target: 'tulle',
-  },
-  {
-    id: 2,
-    title: 'Карниз',
-    url: portiere1,
-    target: 'cornice',
-  },
-  {
-    id: 3,
-    title: 'Римская штора',
-    url: rome,
-    target: 'rome',
-  },
-  {
-    id: 4,
-    title: 'Тюль',
-    url: tulle2,
-    target: 'tulle',
-  },
-  {
-    id: 5,
-    title: 'Карниз',
-    url: cornice,
-    target: 'cornice',
-  },
-  {
-    id: 6,
-    title: 'Тюль',
-    url: tulle2,
-    target: 'tulle',
-  },
-  {
-    id: 7,
-    title: 'Портьера',
-    url: portiere2,
-    target: 'portiere',
-  },
-];
-
 const Carousel = () => {
   const [move, setMove] = useState(0);
   const [active, setActive] = useState(3);
+
+  const data = useStaticQuery(graphql`
+    query {
+
+      # get all images from "slider" folder
+      images: allFile( filter: { relativeDirectory: { eq: "slider" } } ) {
+        nodes {
+          id
+          name
+          childImageSharp {
+            fixed(width: 190) {
+             ...GatsbyImageSharpFixed
+            }
+          }
+        }
+      }
+
+      placeholderImage: file(relativePath: { eq: "slider/cornice.png" }) {
+        childImageSharp {
+           fixed(width: 190) {
+            ...GatsbyImageSharpFixed
+           }
+          #fluid(maxWidth: 300) {
+           # ...GatsbyImageSharpFluid
+          #}
+        }
+      }
+    }
+  `);
+
+  const images = useMemo(() => {
+    if (!data) return {};
+    return data.images.nodes.reduce((res, item) => {
+      res[item.name] = item;
+      return res;
+    }, {});
+  }, [data]);
+
+  const slides = [
+    {
+      id: 1,
+      title: 'Тюль',
+      url: images.tulle1.childImageSharp.fixed,
+      target: 'tulle',
+    },
+    {
+      id: 2,
+      title: 'Карниз',
+      url: images.cornice.childImageSharp.fixed,
+      target: 'cornice',
+    },
+    {
+      id: 3,
+      title: 'Римская штора',
+      url: images.rome.childImageSharp.fixed,
+      target: 'rome',
+    },
+    {
+      id: 4,
+      title: 'Тюль',
+      url: images.tulle2.childImageSharp.fixed,
+      target: 'tulle',
+    },
+    {
+      id: 5,
+      title: 'Карниз',
+      url: images.cornice.childImageSharp.fixed,
+      target: 'cornice',
+    },
+    {
+      id: 6,
+      title: 'Портьера',
+      url: images.portiere1.childImageSharp.fixed,
+      target: 'portiere',
+    },
+    {
+      id: 7,
+      title: 'Портьера',
+      url: images.portiere2.childImageSharp.fixed,
+      target: 'portiere',
+    },
+  ];
 
   const clickItem = (n, targetId) => {
     if (n === active) {
@@ -149,13 +201,34 @@ const Carousel = () => {
             siblings={index === active - 2 || index === active}
             onClick={() => clickItem(index + 1, item.target)}
           >
-            <img src={item.url} alt="" />
+            {/* <img src={item.url} alt="" /> */}
+            {/* <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="" /> */}
+            <Img fixed={item.url} alt="" />
             <span>{item.title}</span>
+            {/* loading="eager" */}
           </Slide>
         ))}
       </Slider>
+
+      {/* <Img fluid={data.placeholderImage.childImageSharp.fluid} alt="" /> */}
+      {/* <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="" /> */}
+
     </Wrap>
   );
 };
 
 export default Carousel;
+
+// export const query = graphql`
+//   query {
+//     file(relativePath: { eq: "./images/cornice.png" }) {
+//       childImageSharp {
+//         # Specify the image processing specifications right in the query.
+//         # Makes it trivial to update as your page's design changes.
+//         fixed(width: 288, height: 446) {
+//           ...GatsbyImageSharpFixed
+//         }
+//       }
+//     }
+//   }
+// `;
