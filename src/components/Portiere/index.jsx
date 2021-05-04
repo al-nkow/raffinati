@@ -3,6 +3,7 @@ import Input from '../Input';
 import Checkbox from '../Checkbox';
 import KsInfo from '../KsInfo';
 import { portiereOptions } from '../../config';
+import OrderModal from '../OrderModal';
 
 import {
   Head,
@@ -16,6 +17,7 @@ import {
   RadioGroup,
   RadioLabel,
   RadioBtn,
+  Button,
 } from '../Shared';
 
 const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
@@ -25,7 +27,14 @@ const TAPE_COEF = 0.3; // Коэффициент расчета шторной �
 
 const options = portiereOptions.map(i => i.price);
 
+const baseMap = portiereOptions.reduce((res, i) => {
+  res[i.price] = i.title;
+  return res;
+}, {});
+
 const PortiereTab = ({ option }) => {
+  const [showOrderModal, toggleModal] = useState(false);
+
   const [values, setValues] = useState({
     base: options[option],
     width: null,
@@ -147,8 +156,18 @@ const PortiereTab = ({ option }) => {
               </Calculation>
               <div>
                 Итого: {totalPrice} ₽
+                <br />
+                <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
               </div>
             </Result>
+          ) : null}
+
+          {showOrderModal ? (
+            <OrderModal
+              details={`Портьеры, ${baseMap[base]}, ширина ${width} м, складка ${waves} ${cornice ? `+ ${corniceBase === CORNICE_REG_PRICE ? 'Профильный' : 'Декоративный'} карниз` : ''}.`}
+              price={totalPrice}
+              close={() => toggleModal(false)}
+            />
           ) : null}
         </>
       ) : null}

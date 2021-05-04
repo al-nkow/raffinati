@@ -24,6 +24,11 @@ const TAPE_COEF = 0.3; // Коэффициент расчета шторной �
 
 const options = romeOptions.map(i => i.price);
 
+const baseMap = romeOptions.reduce((res, i) => {
+  res[i.price] = i.title;
+  return res;
+}, {});
+
 const Rome = ({ option }) => {
   const [showOrderModal, toggleModal] = useState(false);
 
@@ -144,9 +149,11 @@ const Rome = ({ option }) => {
             </Result>
           ) : null}
           {showOrderModal ? (
-            <OrderModal close={() => toggleModal(false)}>
-              Римская штора {width}/{height} м {cornice ? '+ корниз' : ''} стоимостью {totalPrice} ₽
-            </OrderModal>
+            <OrderModal
+              details={`Римская штора, ${baseMap[base]}, ${width}/${height} м ${cornice ? '+ карниз' : ''}.`}
+              price={totalPrice}
+              close={() => toggleModal(false)}
+            />
           ) : null}
         </>
       ) : null}

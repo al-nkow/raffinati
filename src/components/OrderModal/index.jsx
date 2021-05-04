@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import validate from './validate';
@@ -28,6 +28,7 @@ const Modal = styled.div`
 
 const Head = styled.div`
   margin-bottom: 20px;
+  line-height: 22px;
 `;
 
 const Label = styled.div`
@@ -76,6 +77,13 @@ const SubmitBtn = styled.button`
   &:hover {
     opacity: 0.9;
   }
+  ${({ disabled }) => (disabled ? `
+    cursor: default;
+    opacity: 0.6;
+    &:hover {
+      opacity: 0.6;
+    }
+  ` : '')}
 `;
 
 const CancelBtn = styled.button`
@@ -106,6 +114,13 @@ const ConfirmMessage = styled.div`
   margin-bottom: 20px;
 `;
 
+const ErrorMessage = styled.div`
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 20px;
+  color: ${red};
+`;
+
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
@@ -114,8 +129,15 @@ const Row = styled.div`
   }
 `;
 
-const OrderModal = ({ children, close }) => {
+const OrderModal = ({ close, details, price }) => {
   const [sent, setSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+  const ref = useRef(null);
+
+  const showErrorMessage = (msg) => {
+    setErrorMsg(msg);
+    ref.current = setTimeout(() => setErrorMsg(''), 1000);
+  };
 
   const initialValues = {
     name: '',
@@ -125,25 +147,14 @@ const OrderModal = ({ children, close }) => {
     notes: '',
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-  const onSubmit = (values) => {
-    console.log('VALUES >>>>>>>', values);
-    // fetch('send.php')
-    // setSent(true);
-
+  const onSubmit = (values, { setSubmitting }) => {
     const url = '/api/mailer/send.php';
+    const requestData = {
+      order: `${new Date().getMonth() + 1}-${Math.random().toString().substr(2, 4)}`,
+      price,
+      details,
+      ...values,
+    };
 
     const myHeaders = new Headers();
     myHeaders.append('Accept', 'application/json');
@@ -151,61 +162,43 @@ const OrderModal = ({ children, close }) => {
 
     const fetchData = {
       method: 'POST',
-      body: JSON.stringify(values),
+      body: JSON.stringify(requestData),
       headers: myHeaders,
     };
 
     fetch(url, fetchData)
       .then(res => res.json())
       .then((response) => {
-        console.log('RESPONSE >>>>>>>', response);
+        if (response.result === 'success') {
+          setSent(true);
+        } else {
+          showErrorMessage('Ошибка сервера');
+        }
+        setSubmitting(false);
       })
-      .catch(err => console.log('ERROR >>>>>>', err));
+      .catch(err => {
+        console.log('SUBMISSION ERROR:', err);
+        showErrorMessage('Ошибка сервера');
+        setSubmitting(false);
+      });
   };
 
-
-
-
-
-
-// // data to be sent to the POST request
-// let _data = {
-//   title: "foo",
-//   body: "bar", 
-//   userId:1
-// }
-
-// fetch('https://jsonplaceholder.typicode.com/posts', {
-//   method: "POST",
-//   body: JSON.stringify(_data),
-//   headers: {"Content-type": "application/json; charset=UTF-8"}
-// })
-// .then(response => response.json()) 
-// .then(json => console.log(json));
-// .catch(err => console.log(err));
-
-
-
-
-
-
-
-
-
-
-
-
-
+  useEffect(() => () => clearTimeout(ref.current), []);
 
   return (
     <Overlay>
       <Modal>
+        {errorMsg ? (
+          <ErrorMessage>
+            {errorMsg}
+          </ErrorMessage>
+        ) : ''}
         {sent ? (
           <>
             <ConfirmMessage>
-              Ваш заказ принят! На указанный email адрес отправлено письмо с деталями заказа и
-              реквизитами для оплаты, после того как деньги поступят на наш счет мы с Вами
-              свяжемся и начнем выполнять заказ.
+              Ваш заказ принят! На указанный email адрес отправлено письмо с
+              деталями заказа и реквизитами для оплаты, после того как деньги
+              поступят на наш счёт, мы сразу начнём выполнять заказ.
             </ConfirmMessage>
             <Controls>
               <CancelBtn onClick={close}>Закрыть</CancelBtn>
@@ -214,7 +207,7 @@ const OrderModal = ({ children, close }) => {
         ) : (
           <>
             <Head>
-              {children}
+              {details} Стоимость: {price} ₽
             </Head>
             <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
               {({
@@ -290,16 +283,11 @@ const OrderModal = ({ children, close }) => {
                   </FormGroup>
                   <Controls>
                     <CancelBtn onClick={close}>Отменить</CancelBtn>
-                    {/* <SubmitBtn
-                      type="submit"
-                      disabled={isSubmitting}
-                    >
-                      Отправить
-                    </SubmitBtn> */}
                     <SubmitBtn
                       type="submit"
+                      disabled={errorMsg || isSubmitting}
                     >
-                      Отправить1111
+                      Отправить
                     </SubmitBtn>
                   </Controls>
                 </form>

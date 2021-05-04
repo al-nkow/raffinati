@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Input from '../Input';
+import OrderModal from '../OrderModal';
 
 import {
   SelectBase,
@@ -10,16 +11,21 @@ import {
   FormGroup,
   Result,
   Calculation,
-  RadioGroup,
-  RadioLabel,
-  RadioBtn,
+  Button,
 } from '../Shared';
 
 import { corniceOptions } from '../../config';
 
 const options = corniceOptions.map(i => i.price);
 
+const baseMap = corniceOptions.reduce((res, i) => {
+  res[i.price] = i.title;
+  return res;
+}, {});
+
 const PortiereTab = ({ option }) => {
+  const [showOrderModal, toggleModal] = useState(false);
+
   const [values, setValues] = useState({
     width: null,
     corniceBase: options[option],
@@ -37,7 +43,7 @@ const PortiereTab = ({ option }) => {
   const corniceCost = +(width * corniceBase).toFixed(2);
 
   return (
-    <div>
+    <>
       <Head>
         1. Выберите <i>вариант</i> карниза
       </Head>
@@ -67,21 +73,6 @@ const PortiereTab = ({ option }) => {
           </FormGroup>
         </>
       ) : null}
-      {/* <RadioGroup>
-        {corniceOptions.map(item => (
-          <RadioLabel key={item.id}>
-            <RadioBtn checked={corniceBase === item.price}>
-              <input
-                type="radio"
-                value="option1"
-                checked={corniceBase === item.price}
-                onChange={() => setCorniceBase(item.price)}
-              />
-            </RadioBtn>
-            {item.title} ({item.price} руб/м)
-          </RadioLabel>
-        ))}
-      </RadioGroup> */}
       {width ? (
         <Result>
           <Calculation>
@@ -90,10 +81,20 @@ const PortiereTab = ({ option }) => {
           </Calculation>
           <div>
             Итого: {corniceCost} ₽
+            <br />
+            <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
         </Result>
       ) : null}
-    </div>
+
+      {showOrderModal ? (
+        <OrderModal
+          details={`Карниз ${baseMap[corniceBase]?.toLowerCase()} ${width} м.`}
+          price={corniceCost}
+          close={() => toggleModal(false)}
+        />
+      ) : null}
+    </>
   );
 };
 
