@@ -51,10 +51,10 @@ RAFFINATI
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:200;font-size:16px;line-height:1.5;\">
 Вы сделали заказ на сайте <a href=\"$domain\" style=\"word-wrap:normal;color:#0a66c2;word-break:normal;white-space:nowrap;text-decoration:none\" target=\"_blank\">raffinati.org</a><br />
-Детали заказа: $details.
+Детали заказа: $details
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:400;font-size:20px;line-height:1.333;\">
-Всего к оплате: $price руб.
+Всего к оплате: $price руб
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:200;font-size:16px;line-height:1.5;\">
 Совершить оплату Вы можете путём перечисления стоимости заказа на карту Сбербанка<br>
@@ -96,7 +96,8 @@ try {
   $mail->setFrom('raffmailtest@yandex.ru', 'RAFFINATI'); // Адрес самой почты и имя отправителя
 
   // Получатель письма
-  $mail->addAddress('al.nkow@gmail.com');
+  $mail->addAddress($email);
+  $mail->addAddress('daria@raffinati.org'); // info@raffinati.org
   $mail->addAddress('al.nkow@yandex.ru');
   // $mail->addAddress('youremail@gmail.com'); // Ещё один, если нужен
 

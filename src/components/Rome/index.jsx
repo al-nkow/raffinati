@@ -18,11 +18,18 @@ import {
 import { romeOptions } from '../../config';
 import OrderModal from '../OrderModal';
 
+import { barhatColors, blackoutColors, tulleColors } from './colors';
+import SelectColor from '../SelectColor';
+
+const mapColors = {
+  romeTulle: tulleColors,
+  romeBlackout: blackoutColors,
+  romeCloth: barhatColors,
+};
+
 const CORNICE_PRICE = 2200; // Карниз метр
 const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
-
-const options = romeOptions.map(i => i.price);
 
 const baseMap = romeOptions.reduce((res, i) => {
   res[i.price] = i.title;
@@ -31,34 +38,16 @@ const baseMap = romeOptions.reduce((res, i) => {
 
 const Rome = ({ option }) => {
   const [showOrderModal, toggleModal] = useState(false);
+  const [color, setColor] = useState('');
+  const [category, setCategory] = useState(option || null);
 
   const [values, setValues] = useState({
-    base: options[option],
+    base: option,
     width: null,
     height: null,
     cornice: false,
     type: 'standart',
   });
-
-  const setBase = (price) => {
-    setValues({ ...values, base: price });
-  };
-
-  const setWidth = (width) => {
-    setValues({ ...values, width });
-  };
-
-  const setHeight = (height) => {
-    setValues({ ...values, height });
-  };
-
-  const setCornice = (event) => {
-    setValues({ ...values, cornice: +event.target.checked });
-  };
-
-  const setType = (type) => {
-    setValues({ ...values, type });
-  };
 
   const { base, width, height, cornice, type } = values;
 
@@ -78,7 +67,7 @@ const Rome = ({ option }) => {
               type="radio"
               value="standart"
               checked={type === 'standart'}
-              onChange={() => setType('standart')}
+              onChange={() => setValues({ ...values, type: 'standart' })}
             />
           </RadioBtn>
           Стандарт
@@ -89,44 +78,60 @@ const Rome = ({ option }) => {
               type="radio"
               value="order"
               checked={type === 'order'}
-              onChange={() => setType('order')}
+              onChange={() => setValues({ ...values, type: 'order' })}
             />
           </RadioBtn>
           Под заказ
         </RadioLabel>
       </RadioGroup>
       <Head>
-        1. Выберите <i>материал</i>
+        1. Выберите <i>категорию</i>
       </Head>
       <SelectBase>
         {romeOptions.map((item) => (
           <Fabric
             key={item.id}
             url={item.image}
-            onClick={() => setBase(item.price)}
-            active={values.base === item.price}
+            onClick={() => {
+              setColor('');
+              setCategory(item.id);
+              setValues({ ...values, base: item.price });
+            }}
+            active={category === item.id}
           >
             {item.title}
             <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
           </Fabric>
         ))}
       </SelectBase>
-      {base ? (
+      {base && category ? (
         <>
           <Head>
-            2. Укажите <i>размеры</i>
+            2. Выберите <i>цвет</i>
+          </Head>
+          <SelectColor options={mapColors[category]} select={setColor} value={color} />
+        </>
+      ) : null}
+      {base && color ? (
+        <>
+          <Head>
+            3. Укажите <i>размеры</i>
           </Head>
           <FormGroup>
             <Label>Длина карниза (ширина шторы)</Label>
             <br />
-            <Input changed={setWidth} placeholder="Укажите ширину в метрах" />
+            <Input changed={(w) => setValues({ ...values, width: w })} placeholder="Укажите ширину в метрах" />
           </FormGroup>
           <FormGroup>
             <Label>Высота шторы</Label>
             <br />
-            <Input changed={setHeight} placeholder="Укажите высоту в метрах" />
+            <Input changed={(h) => setValues({ ...values, height: h })} placeholder="Укажите высоту в метрах" />
           </FormGroup>
-          <Checkbox onChange={setCornice} checked={cornice} title="Добавить карниз" />
+          <Checkbox
+            onChange={(e) => setValues({ ...values, cornice: +e.target.checked })}
+            checked={cornice}
+            title="Добавить карниз"
+          />
           {width && height ? (
             <Result>
               <Calculation>
@@ -150,7 +155,7 @@ const Rome = ({ option }) => {
           ) : null}
           {showOrderModal ? (
             <OrderModal
-              details={`Римская штора, ${baseMap[base]}, ${width}/${height} м ${cornice ? '+ карниз' : ''}.`}
+              details={`Римская штора, ${baseMap[base]}, ${color}, ${width}/${height} м ${cornice ? '+ карниз' : ''}.`}
               price={totalPrice}
               close={() => toggleModal(false)}
             />

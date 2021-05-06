@@ -207,7 +207,9 @@ const OrderModal = ({ close, details, price }) => {
         ) : (
           <>
             <Head>
-              {details} Стоимость: {price} ₽
+              {details}
+              <br />
+              Стоимость: {price} ₽
             </Head>
             <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
               {({

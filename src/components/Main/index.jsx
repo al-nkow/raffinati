@@ -14,6 +14,7 @@ const Wrap = styled.div`
 const H1 = styled.h1`
   position: relative;
   z-index: 10;
+  font-style: italic;
   display: block;
   font-family: 'Playfair Display';
   font-weight: 400;
@@ -22,7 +23,6 @@ const H1 = styled.h1`
   text-align: center;
   margin-bottom: 160px;
   i {
-    font-style: italic;
     color: ${passion};
     opacity: 0.8;
   }

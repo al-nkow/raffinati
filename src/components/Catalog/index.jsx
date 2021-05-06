@@ -12,28 +12,26 @@ const Catalog = () => (
   <Wrap id="catalog">
     <Block
       id="rome"
-      title="Римская<br /><i>штора</i>"
-      description="Надежная, функциональная<br />и простая в использовании<br />римская штора."
+      title="Римская<br />штора"
+      description="Отличное дизайнерское решение для Вашего интерьера. Это тканевое полотно, которое при открытии создает волнообразные складки"
       options={romeOptions}
     />
     <Block
       id="tulle"
       swap
       title="Тюль"
-      description="Надежная, функциональная<br />и простая в использовании<br />тюль."
       options={tulleOptions}
     />
     <Block
       id="portiere"
       title="Партьеры"
-      description="Надежная, функциональная<br />и простая в использовании<br />партьеры."
+      description="Плотные портьеры хорошо держат форму, драпируются мягкими складками и смотрятся изыскано в любом интерьере"
       options={portiereOptions}
     />
     <Block
       id="cornice"
       swap
       title="Карнизы"
-      description="Надежная, функциональная<br />и простая в использовании<br />карнизы."
       options={corniceOptions}
     />
   </Wrap>

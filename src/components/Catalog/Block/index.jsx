@@ -22,7 +22,7 @@ const Col = styled.div`
     padding-top: 20px;
   }
   &:last-child {
-    ${({ swap }) => (swap ? 'padding-right:' : 'padding-left:')} 15px;
+    ${({ swap }) => (swap ? 'padding-right: 15px' : 'padding-left: 15px')};
     flex: none;
     width: 50%;
   }
@@ -67,17 +67,16 @@ const ControlItem = styled.div`
 `;
 
 const Title = styled.h3`
+  font-style: italic;
   margin-bottom: 42px;
   font-size: 64px;
   line-height: 56px;
   font-family: 'Playfair Display';
   font-weight: 400;
-  i {
-    font-style: italic;
-  }
 `;
 
 const Description = styled.div`
+  padding-right: 40px;
   line-height: 26px;
   margin-bottom: 46px;
 `;
@@ -104,28 +103,30 @@ const Block = ({
   options,
   id,
 }) => {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState(options[0].id);
+  const currentOption = options.find(i => i.id === active);
 
   return (
     <Wrap swap={swap} id={id}>
       <Col swap={swap}>
         <Controls>
-          {options.map((item, index) => (
+          {options.map((item) => (
             <ControlItem
               key={item.id}
-              active={index === active}
-              onClick={() => setActive(index)}
+              active={item.id === active}
+              onClick={() => setActive(item.id)}
             >
               {item.title}
             </ControlItem>
           ))}
         </Controls>
         <Title dangerouslySetInnerHTML={{ __html: title }} />
-        <Description dangerouslySetInnerHTML={{ __html: description }} />
+        {description ? <Description dangerouslySetInnerHTML={{ __html: description }} /> : ''}
+        <Description>{currentOption.info}</Description>
         <Button to={`/calculator?open=${id}&option=${active}`}>Рассчитать стоимость</Button>
       </Col>
       <Col swap={swap}>
-        <Image src={options[active].image} alt="" />
+        <Image src={currentOption.image} alt="" />
       </Col>
     </Wrap>
   );

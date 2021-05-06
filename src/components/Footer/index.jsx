@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Logo from './images/logo.png';
-import { email, phone, text, contentWidth, light, gray74 } from '../../config';
+import { email, phone, text, contentWidth, light, gray74, instaUrl, whatsappUrl } from '../../config';
 
 const Wrap = styled.div`
   background: ${text};
@@ -46,6 +46,16 @@ const Info = styled.div`
   font-size: 14px;
   margin-bottom: 20px;
   color: ${gray74};
+  max-width: 400px;
+  line-height: 22px;
+`;
+
+const A = styled.a`
+  color: ${gray74};
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const UnderFooter = styled.div`
@@ -71,11 +81,20 @@ const Footer = () => (
               <path fillRule="evenodd" clipRule="evenodd" d="M10.3312 0.466919C10.6968 0.182576 11.2087 0.182576 11.5743 0.466919L20.6857 7.55362C20.9323 7.74543 21.0766 8.04034 21.0766 8.35275V19.489C21.0766 20.2945 20.7566 21.067 20.187 21.6366C19.6174 22.2062 18.8449 22.5262 18.0394 22.5262H3.86602C3.06051 22.5262 2.288 22.2062 1.71842 21.6366C1.14884 21.067 0.828857 20.2945 0.828857 19.489V8.35275C0.828857 8.04034 0.973095 7.74543 1.2197 7.55362L10.3312 0.466919ZM2.85363 8.84789V19.489C2.85363 19.7575 2.96029 20.015 3.15015 20.2049C3.34001 20.3947 3.59752 20.5014 3.86602 20.5014H18.0394C18.3079 20.5014 18.5654 20.3947 18.7553 20.2049C18.9452 20.015 19.0518 19.7575 19.0518 19.489V8.84789L10.9527 2.5486L2.85363 8.84789Z" fill="#FEFAF7" />
               <path fillRule="evenodd" clipRule="evenodd" d="M6.90303 12.1256C6.90303 11.6089 7.35629 11.1899 7.91542 11.1899H13.9897C14.5489 11.1899 15.0021 11.6089 15.0021 12.1256V21.4824C15.0021 21.9991 14.5489 22.418 13.9897 22.418C13.4306 22.418 12.9773 21.9991 12.9773 21.4824V13.0613H8.9278V21.4824C8.9278 21.9991 8.47454 22.418 7.91542 22.418C7.35629 22.418 6.90303 21.9991 6.90303 21.4824V12.1256Z" fill="#FEFAF7" />
             </svg>
-            Адреса
+            Адреса салонов
           </Title>
-          <Info>Москва, Чистопрудный бульвар, д. 40/3</Info>
-          <Info>Москва, Петровка, д. 38/4</Info>
-          <Info>Санкт-Петербург, Лигвский проспект. д.87</Info>
+          <Info>
+            Москва, Нахимовский проспект 24, Центр Дизайна и декора &quot;Экспострой&quot;,
+            павильон 2, ряд 1, стенд 45
+          </Info>
+          <Info>
+            Санкт-Петербург, Новолитовская 15, Мебельный центр &quot;Аквилон&quot;, корпус Д,
+            второй этаж, секция 201 А
+          </Info>
+          <Info>
+            Санкт-Петербург, Варшавская 3, Мебельный центр &quot;Мебельный континент&quot;,
+            корпус 1, этаж 2, секця 234 А
+          </Info>
         </Col>
         <Col>
           <Title>
@@ -84,7 +103,7 @@ const Footer = () => (
             </svg>
             E-mail
           </Title>
-          <Info>{email}</Info>
+          <Info><A href={`mailto:${email}`}>{email}</A></Info>
         </Col>
         <Col>
           <Title>
@@ -93,7 +112,7 @@ const Footer = () => (
             </svg>
             WhatsApp
           </Title>
-          <Info>{phone}</Info>
+          <Info><A href={whatsappUrl} target="_blank" rel="nofollow">{phone}</A></Info>
         </Col>
         <Col>
           <Title>
@@ -102,7 +121,7 @@ const Footer = () => (
             </svg>
             Instagram
           </Title>
-          <Info>Подпишитесь на нас в Instagram</Info>
+          <Info>Подпишитесь на нас в <A href={instaUrl} target="_blank" rel="noreferrer">Instagram</A></Info>
         </Col>
       </Row>
     </Inner>

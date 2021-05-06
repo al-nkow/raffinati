@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { grey, lightGrey, passion } from '../../config';
+import { grey, passion } from '../../config';
 
 const Wrap = styled.div`
   display: flex;
@@ -8,7 +8,6 @@ const Wrap = styled.div`
 
 const Tab = styled.div`
   transition: all 0.1s ease;
-  background: ${lightGrey};
   cursor: pointer;
   color: ${grey};
   font-size: 18px;
@@ -22,7 +21,7 @@ const Tab = styled.div`
   flex: 1;
   height: 146px;
   &:hover {
-    background: none;
+    background: #ccc7c4;
   }
   svg {
     margin-bottom: 10px;

@@ -28,9 +28,7 @@ const Title = styled.h2`
   line-height: 88px;
   font-family: 'Playfair Display';
   font-weight: 400;
-  i {
-    font-style: italic;
-  }
+  font-style: italic;
 `;
 
 const SomeCmp = styled.div`
@@ -45,7 +43,7 @@ const Partners = () => (
       <Title id="partners">
         Сотрудничество
         <br />
-        <i>с дизайнерами</i>
+        с дизайнерами
       </Title>
       <AccBlock title="Присылайте нам свой проект" icon={icon1} light>
         <SomeCmp>Раздел в процессе наполнения</SomeCmp>
