@@ -1,20 +1,20 @@
-import barhatChocolate from '../../images/colors/barhatChocolate.jpg';
-import barhatCoffee from '../../images/colors/barhatCoffee.jpg';
-import barhatSand from '../../images/colors/barhatSand.jpg';
-import barhatGrey from '../../images/colors/barhatGrey.jpg';
+import barhatChocolate from './images/colors/barhatChocolate.jpg';
+import barhatCoffee from './images/colors/barhatCoffee.jpg';
+import barhatSand from './images/colors/barhatSand.jpg';
+import barhatGrey from './images/colors/barhatGrey.jpg';
 
-import blackoutBlue from '../../images/colors/blackoutBlue.jpg';
-import blackoutChocolate from '../../images/colors/blackoutChocolate.jpg';
-import blackoutGrey from '../../images/colors/blackoutGrey.jpg';
-import blackoutLavanda from '../../images/colors/blackoutLavanda.jpg';
-import blackoutLightGrey from '../../images/colors/blackoutLightGrey.jpg';
-import blackoutSand from '../../images/colors/blackoutSand.jpg';
+import blackoutBlue from './images/colors/blackoutBlue.jpg';
+import blackoutChocolate from './images/colors/blackoutChocolate.jpg';
+import blackoutGrey from './images/colors/blackoutGrey.jpg';
+import blackoutLavanda from './images/colors/blackoutLavanda.jpg';
+import blackoutLightGrey from './images/colors/blackoutLightGrey.jpg';
+import blackoutSand from './images/colors/blackoutSand.jpg';
 
-import tulleGrey from '../../images/colors/tulleGrey.jpg';
-import tulleMilk from '../../images/colors/tulleMilk.jpg';
-import tullePink from '../../images/colors/tullePink.jpg';
-import tulleSeaWave from '../../images/colors/tulleSeaWave.jpeg';
-import tulleWhite from '../../images/colors/tulleWhite.jpeg';
+import tulleGrey from './images/colors/tulleGrey.jpg';
+import tulleMilk from './images/colors/tulleMilk.jpg';
+import tullePink from './images/colors/tullePink.jpg';
+import tulleSeaWave from './images/colors/tulleSeaWave.jpeg';
+import tulleWhite from './images/colors/tulleWhite.jpeg';
 
 export const barhatColors = [
   {

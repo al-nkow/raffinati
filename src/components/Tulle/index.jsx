@@ -20,48 +20,37 @@ import {
   Button,
 } from '../Shared';
 
+import { barhatColors, blackoutColors, tulleColors } from '../../colors';
+import SelectColor from '../SelectColor';
+
+const mapColors = {
+  tulleVeil: tulleColors,
+  tulleCrepe: blackoutColors,
+  tulleLinen: barhatColors,
+};
+
 const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
 const CORNICE_DEC_PRICE = 2000; // Карниз декоративный - метр
 const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
-const options = tulleOptions.map(i => i.price);
-
 const baseMap = tulleOptions.reduce((res, i) => {
-  res[i.price] = i.title;
+  res[i.id] = i.title;
   return res;
 }, {});
 
 const TulleTab = ({ option }) => {
   const [showOrderModal, toggleModal] = useState(false);
+  const [color, setColor] = useState('');
+  const [category, setCategory] = useState(option || null);
 
   const [values, setValues] = useState({
-    base: options[option],
+    base: option ? tulleOptions.find(i => i.id === option).price : null,
     width: null,
     waves: null,
     cornice: false,
     corniceBase: CORNICE_REG_PRICE,
   });
-
-  const setBase = (price) => {
-    setValues({ ...values, base: price });
-  };
-
-  const setWidth = (width) => {
-    setValues({ ...values, width });
-  };
-
-  const setWaves = (waves) => {
-    setValues({ ...values, waves });
-  };
-
-  const setCornice = (event) => {
-    setValues({ ...values, cornice: +event.target.checked });
-  };
-
-  const setCorniceBase = (corniceBase) => {
-    setValues({ ...values, corniceBase });
-  };
 
   const { base, width, waves, cornice, corniceBase } = values;
 
@@ -84,15 +73,27 @@ const TulleTab = ({ option }) => {
           <Fabric
             key={item.id}
             url={item.image}
-            onClick={() => setBase(item.price)}
-            active={values.base === item.price}
+            onClick={() => {
+              setColor('');
+              setCategory(item.id);
+              setValues({ ...values, base: item.price });
+            }}
+            active={category === item.id}
           >
             {item.title}
             <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
           </Fabric>
         ))}
       </SelectBase>
-      {base ? (
+      {base && category ? (
+        <>
+          <Head>
+            2. Выберите <i>цвет</i>
+          </Head>
+          <SelectColor options={mapColors[category]} select={setColor} value={color} />
+        </>
+      ) : null}
+      {base && color ? (
         <>
           <Head>
             2. Укажите
@@ -102,7 +103,7 @@ const TulleTab = ({ option }) => {
           <FormGroup>
             <Label>Длина карниза (ширина шторы)</Label>
             <br />
-            <Input changed={setWidth} placeholder="Укажите ширину в метрах" />
+            <Input changed={w => setValues({ ...values, width: w })} placeholder="Укажите ширину в метрах" />
           </FormGroup>
           <FormGroup>
             <Label>
@@ -110,9 +111,13 @@ const TulleTab = ({ option }) => {
               <KsInfo />
             </Label>
             <br />
-            <Input changed={setWaves} placeholder="Укажите коэффициент - например 2.5" />
+            <Input changed={w => setValues({ ...values, waves: w })} placeholder="Укажите коэффициент - например 2.5" />
           </FormGroup>
-          <Checkbox onChange={setCornice} checked={cornice} title="Добавить карниз" />
+          <Checkbox
+            onChange={e => setValues({ ...values, cornice: +e.target.checked })}
+            checked={cornice}
+            title="Добавить карниз"
+          />
           {cornice ? (
             <RadioGroup>
               <RadioLabel>
@@ -121,7 +126,7 @@ const TulleTab = ({ option }) => {
                     type="radio"
                     value="option1"
                     checked={corniceBase === CORNICE_REG_PRICE}
-                    onChange={() => setCorniceBase(CORNICE_REG_PRICE)}
+                    onChange={() => setValues({ ...values, corniceBase: CORNICE_REG_PRICE })}
                   />
                 </RadioBtn>
                 Профильный ({CORNICE_REG_PRICE} руб/м)
@@ -132,7 +137,7 @@ const TulleTab = ({ option }) => {
                     type="radio"
                     value="option2"
                     checked={corniceBase === CORNICE_DEC_PRICE}
-                    onChange={() => setCorniceBase(CORNICE_DEC_PRICE)}
+                    onChange={() => setValues({ ...values, corniceBase: CORNICE_DEC_PRICE })}
                   />
                 </RadioBtn>
                 Декоративный ({CORNICE_DEC_PRICE} руб/м)
@@ -164,7 +169,10 @@ const TulleTab = ({ option }) => {
 
           {showOrderModal ? (
             <OrderModal
-              details={`Тюль, ${baseMap[base]}, ширина ${width} м, складка ${waves} ${cornice ? `+ ${corniceBase === CORNICE_REG_PRICE ? 'Профильный' : 'Декоративный'} карниз` : ''}.`}
+              details={
+                `Тюль (${baseMap[category]?.toLowerCase()}), цвет: ${color?.toLowerCase()}, ширина ${width} м,
+                 складка ${waves}${cornice ? `, ${corniceBase === CORNICE_REG_PRICE ? 'Профильный' : 'Декоративный'} карниз` : ''}.`
+              }
               price={totalPrice}
               close={() => toggleModal(false)}
             />

@@ -54,21 +54,21 @@ export const romeOptions = [
 
 export const tulleOptions = [
   {
-    id: 0,
+    id: 'tulleVeil',
     title: 'Вуаль',
     image: tulleVeil,
     price: 600,
     info: 'Вуаль – прозрачная легкая ткань. Драпируется мягкими складками. Окно декорированное вуалью становится светлее, так как этот тонкий материал пропускает максимум света',
   },
   {
-    id: 1,
+    id: 'tulleCrepe',
     title: 'Креп',
     image: tulleCrepe,
     price: 1900,
     info: 'Креповая ткань отлично драпируется, практически не мнется, устойчива к выцветанию, приятная на ощупь. За счет плотного переплетения нитей идеально преломляет солнечные лучи',
   },
   {
-    id: 2,
+    id: 'tulleLinen',
     title: 'Лён',
     image: tulleLinen,
     price: 1300,
@@ -78,20 +78,20 @@ export const tulleOptions = [
 
 export const portiereOptions = [
   {
-    id: 0,
+    id: 'portiereBlackout',
     title: 'Блэкаут',
     image: portiereBlackout,
     price: 1900,
     info: 'Светонепроницаемость ткани создается за счет плотного переплетения нитей: основного цвета и темного волокна. Тем самым блокирует поток солнечных лучей, обеспечивая затемнение помещения как в кинотеатре',
   },
   {
-    id: 1,
+    id: 'portiereLight',
     title: 'Лёгкие',
     image: portiereLight,
     price: 1600,
   },
   {
-    id: 2,
+    id: 'portiereVeil',
     title: 'Вуаль',
     image: portiereVeil,
     price: 1837,
@@ -100,14 +100,14 @@ export const portiereOptions = [
 
 export const corniceOptions = [
   {
-    id: 0,
+    id: 'cornice1',
     title: 'Профильный',
     image: cornice1,
     price: 700,
     info: 'Представляет собой шину прямоугольного сечения с направляющими пазами. По этим прорезям перемещаются крючки или зажимы, на которых удерживаются шторы',
   },
   {
-    id: 1,
+    id: 'cornice2',
     title: 'Декоративный',
     image: cornice2,
     price: 2000,

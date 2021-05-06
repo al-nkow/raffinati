@@ -18,7 +18,7 @@ import {
 import { romeOptions } from '../../config';
 import OrderModal from '../OrderModal';
 
-import { barhatColors, blackoutColors, tulleColors } from './colors';
+import { barhatColors, blackoutColors, tulleColors } from '../../colors';
 import SelectColor from '../SelectColor';
 
 const mapColors = {
@@ -32,7 +32,7 @@ const TAPE_PRICE = 100; // Шторная лента цена за метр
 const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
 const baseMap = romeOptions.reduce((res, i) => {
-  res[i.price] = i.title;
+  res[i.id] = i.title;
   return res;
 }, {});
 
@@ -42,7 +42,7 @@ const Rome = ({ option }) => {
   const [category, setCategory] = useState(option || null);
 
   const [values, setValues] = useState({
-    base: option,
+    base: option ? romeOptions.find(i => i.id === option).price : null,
     width: null,
     height: null,
     cornice: false,
@@ -155,7 +155,10 @@ const Rome = ({ option }) => {
           ) : null}
           {showOrderModal ? (
             <OrderModal
-              details={`Римская штора, ${baseMap[base]}, ${color}, ${width}/${height} м ${cornice ? '+ карниз' : ''}.`}
+              details={
+                `Римская штора (${baseMap[category]?.toLowerCase()}), цвет: ${color?.toLowerCase()}, ширина ${width}м,
+                 высота ${height}м${cornice ? ', карниз' : ''}.`
+              }
               price={totalPrice}
               close={() => toggleModal(false)}
             />

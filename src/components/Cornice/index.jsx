@@ -16,28 +16,19 @@ import {
 
 import { corniceOptions } from '../../config';
 
-const options = corniceOptions.map(i => i.price);
-
 const baseMap = corniceOptions.reduce((res, i) => {
-  res[i.price] = i.title;
+  res[i.id] = i.title;
   return res;
 }, {});
 
 const PortiereTab = ({ option }) => {
   const [showOrderModal, toggleModal] = useState(false);
+  const [category, setCategory] = useState(option || null);
 
   const [values, setValues] = useState({
     width: null,
-    corniceBase: options[option],
+    corniceBase: option ? corniceOptions.find(i => i.id === option).price : null,
   });
-
-  const setWidth = (width) => {
-    setValues({ ...values, width });
-  };
-
-  const setCorniceBase = (corniceBase) => {
-    setValues({ ...values, corniceBase });
-  };
 
   const { width, corniceBase } = values;
   const corniceCost = +(width * corniceBase).toFixed(2);
@@ -52,8 +43,11 @@ const PortiereTab = ({ option }) => {
           <Fabric
             key={item.id}
             url={item.image}
-            onClick={() => setCorniceBase(item.price)}
-            active={values.corniceBase === item.price}
+            onClick={() => {
+              setCategory(item.id);
+              setValues({ ...values, corniceBase: item.price });
+            }}
+            active={category === item.id}
           >
             {item.title}
             <Cost>Стоимость<br />{item.price} руб/метр</Cost>
@@ -69,7 +63,7 @@ const PortiereTab = ({ option }) => {
           <FormGroup>
             <Label>Длина карниза (ширина шторы)</Label>
             <br />
-            <Input changed={setWidth} placeholder="Укажите ширину в метрах" />
+            <Input changed={w => setValues({ ...values, width: w })} placeholder="Укажите ширину в метрах" />
           </FormGroup>
         </>
       ) : null}
@@ -89,7 +83,7 @@ const PortiereTab = ({ option }) => {
 
       {showOrderModal ? (
         <OrderModal
-          details={`Карниз ${baseMap[corniceBase]?.toLowerCase()} ${width} м.`}
+          details={`Карниз ${baseMap[category]?.toLowerCase()} ${width} м.`}
           price={corniceCost}
           close={() => toggleModal(false)}
         />
