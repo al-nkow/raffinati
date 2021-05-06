@@ -3,19 +3,15 @@ import SEO from '../components/seo';
 import Header from '../components/Head';
 import Footer from '../components/Footer';
 import Caculator from '../components/Calculator';
-
-// !!! TODO - вот это гавно теряется при обновлении страницы!!!! - его просто нет!
-// import './common.css';
-// import '@fontsource/playfair-display/400.css';
-// import '@fontsource/playfair-display/400-italic.css';
+import Layout from '../components/Layout';
 
 const CalcPage = ({ location }) => (
-  <>
+  <Layout>
     <SEO title="Калькулятор" />
     <Header />
     <Caculator location={location} />
     <Footer />
-  </>
+  </Layout>
 );
 
 export default CalcPage;
