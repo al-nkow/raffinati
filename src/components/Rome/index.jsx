@@ -61,8 +61,8 @@ const Rome = ({ option }) => {
   return (
     <div>
       <RadioGroup>
-        <RadioLabel>
-          <RadioBtn checked={type === 'standart'}>
+        <RadioLabel large>
+          <RadioBtn checked={type === 'standart'} large>
             <input
               type="radio"
               value="standart"
@@ -72,8 +72,8 @@ const Rome = ({ option }) => {
           </RadioBtn>
           Стандарт
         </RadioLabel>
-        <RadioLabel>
-          <RadioBtn checked={type === 'order'}>
+        <RadioLabel large>
+          <RadioBtn checked={type === 'order'} large>
             <input
               type="radio"
               value="order"

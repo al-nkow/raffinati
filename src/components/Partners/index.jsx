@@ -31,12 +31,6 @@ const Title = styled.h2`
   font-style: italic;
 `;
 
-const SomeCmp = styled.div`
-  padding: 40px;
-  opacity: 0.8;
-  color: ${light};
-`;
-
 const Partners = () => (
   <Wrap>
     <Inner>
@@ -45,21 +39,11 @@ const Partners = () => (
         <br />
         с дизайнерами
       </Title>
-      <AccBlock title="Присылайте нам свой проект" icon={icon1} light>
-        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-      </AccBlock>
-      <AccBlock title="Вместе мы подберём ткань" icon={icon2} light>
-        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-      </AccBlock>
-      <AccBlock title="Сделаем расчёт стоимости" icon={icon3} light>
-        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-      </AccBlock>
-      <AccBlock title="Заключаем договор" icon={icon4} light>
-        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-      </AccBlock>
-      <AccBlock title="Согласовываем с клиентом" icon={icon5} light>
-        <SomeCmp>Раздел в процессе наполнения</SomeCmp>
-      </AccBlock>
+      <AccBlock title="Присылайте нам свой проект" icon={icon1} light blank />
+      <AccBlock title="Вместе мы подберём ткань" icon={icon2} light blank />
+      <AccBlock title="Сделаем расчёт стоимости" icon={icon3} light blank />
+      <AccBlock title="Заключаем договор" icon={icon4} light blank />
+      <AccBlock title="Согласовываем с клиентом" icon={icon5} light blank />
     </Inner>
   </Wrap>
 );

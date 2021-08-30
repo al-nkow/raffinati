@@ -24,7 +24,7 @@ const Catalog = () => (
     />
     <Block
       id="portiere"
-      title="Партьеры"
+      title="Портьеры"
       description="Плотные портьеры хорошо держат форму, драпируются мягкими складками и смотрятся изыскано в любом интерьере"
       options={portiereOptions}
     />

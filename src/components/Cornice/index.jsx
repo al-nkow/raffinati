@@ -53,7 +53,7 @@ const PortiereTab = ({ option }) => {
             <Cost>Стоимость<br />{item.price} руб/метр</Cost>
           </Fabric>
         ))}
-        <Fabric cap />
+        {/* <Fabric cap /> */}
       </SelectBase>
       {corniceBase ? (
         <>

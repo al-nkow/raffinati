@@ -7,8 +7,9 @@ import tulleLinen from './images/tulleLinen.png';
 import portiereBlackout from './images/portiereBlackout.png';
 import portiereLight from './images/portiereLight.png';
 import portiereVeil from './images/portiereVeil.png';
-import cornice1 from './images/cornice1.png';
-import cornice2 from './images/cornice2.png';
+import cornice1 from './images/cornice1.jpg';
+import cornice2 from './images/cornice2.jpeg';
+import cornice3 from './images/cornice3.jpeg';
 
 export const contentWidth = 1170;
 
@@ -40,14 +41,14 @@ export const romeOptions = [
     id: 'romeBlackout',
     title: 'Блэкаут',
     image: romeBlackout,
-    price: 1900,
+    price: 2200,
     info: 'Римская штора из Блэкаута отлично защитит от солнечного света, выгорания мебели и сохранит Ваш сон',
   },
   {
     id: 'romeCloth',
-    title: 'Ткань',
+    title: 'Лён',
     image: romeCloth,
-    price: 1700,
+    price: 1600,
     info: 'Римская штора из портьерной ткани станет финальным штрихом и придаст помещению законченный вид',
   },
 ];
@@ -112,5 +113,12 @@ export const corniceOptions = [
     image: cornice2,
     price: 2000,
     info: 'Декоративные карнизы изготавливаются из дерева и латуни, могут быть хромированными и коваными',
+  },
+  {
+    id: 'cornice3',
+    title: 'Электрокарниз',
+    image: cornice3,
+    price: 2500,
+    info: 'Это карниз, в котором шторы задвигаются и раздвигаются сами с помощью компактного и тихого электромотора и встроенного механизма. Шторы с электрокарнизами сделают Ваш дом еще более современным и уютным.',
   },
 ];

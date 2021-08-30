@@ -13,7 +13,7 @@ import blackoutSand from './images/colors/blackoutSand.jpg';
 import tulleGrey from './images/colors/tulleGrey.jpg';
 import tulleMilk from './images/colors/tulleMilk.jpg';
 import tullePink from './images/colors/tullePink.jpg';
-import tulleSeaWave from './images/colors/tulleSeaWave.jpeg';
+// import tulleSeaWave from './images/colors/tulleSeaWave.jpeg';
 import tulleWhite from './images/colors/tulleWhite.jpeg';
 
 export const barhatColors = [
@@ -41,24 +41,9 @@ export const barhatColors = [
 
 export const blackoutColors = [
   {
-    id: 1,
-    title: 'Блэкаут голубой',
-    img: blackoutBlue,
-  },
-  {
-    id: 2,
-    title: 'Блэкаут шоколад',
-    img: blackoutChocolate,
-  },
-  {
     id: 3,
     title: 'Блэкаут серый',
     img: blackoutGrey,
-  },
-  {
-    id: 4,
-    title: 'Блэкаут лаванда',
-    img: blackoutLavanda,
   },
   {
     id: 5,
@@ -70,13 +55,28 @@ export const blackoutColors = [
     title: 'Блэкаут песочный',
     img: blackoutSand,
   },
+  {
+    id: 2,
+    title: 'Блэкаут шоколад',
+    img: blackoutChocolate,
+  },
+  {
+    id: 4,
+    title: 'Блэкаут лаванда',
+    img: blackoutLavanda,
+  },
+  {
+    id: 1,
+    title: 'Блэкаут голубой',
+    img: blackoutBlue,
+  },
 ];
 
 export const tulleColors = [
   {
     id: 1,
-    title: 'Вуаль серая',
-    img: tulleGrey,
+    title: 'Вуаль белая',
+    img: tulleWhite,
   },
   {
     id: 2,
@@ -85,17 +85,17 @@ export const tulleColors = [
   },
   {
     id: 3,
-    title: 'Вуаль розовая',
-    img: tullePink,
+    title: 'Вуаль серая',
+    img: tulleGrey,
   },
   {
     id: 4,
-    title: 'Вуаль цвета морской волны',
-    img: tulleSeaWave,
+    title: 'Вуаль розовая',
+    img: tullePink,
   },
-  {
-    id: 5,
-    title: 'Вуаль белая',
-    img: tulleWhite,
-  },
+  // {
+  //   id: 4,
+  //   title: 'Вуаль цвета морской волны',
+  //   img: tulleSeaWave,
+  // },
 ];

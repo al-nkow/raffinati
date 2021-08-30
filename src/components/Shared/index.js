@@ -10,12 +10,15 @@ export const RadioLabel = styled.label`
   margin-right: 10px;
   align-items: center;
   margin-right: 20px;
+  ${({ large }) => (large ? `
+    font-size: 20px;
+  ` : '')}
 `;
 
 export const RadioBtn = styled.div`
   margin-right: 10px;
-  width: 20px;
-  height: 20px;
+  width: ${({ large }) => (large ? '36px' : '20px')};
+  height: ${({ large }) => (large ? '36px' : '20px')};
   border-radius: 50%;
   position: relative;
   border: 1px solid ${grey};

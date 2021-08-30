@@ -55,6 +55,7 @@ const AccBlock = ({
   light,
   id,
   scrollTo,
+  blank,
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -69,12 +70,14 @@ const AccBlock = ({
       <Head light={light}>
         <Image src={icon} alt="" />
         {title}
-        <Button onClick={() => setOpen(!open)} open={open} light={light}>
-          <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M15.6096 0.55957V30.5596" strokeWidth="2" />
-            <path d="M0.609619 15.5596L30.6096 15.5596" strokeWidth="2" />
-          </svg>
-        </Button>
+        {!blank && (
+          <Button onClick={() => setOpen(!open)} open={open} light={light}>
+            <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15.6096 0.55957V30.5596" strokeWidth="2" />
+              <path d="M0.609619 15.5596L30.6096 15.5596" strokeWidth="2" />
+            </svg>
+          </Button>
+        )}
       </Head>
       {open && children}
     </div>

@@ -1,10 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Bear from './images/bear.png';
-import Girl from './images/girl.png';
-import Girl2 from './images/girl2.png';
-import Man from './images/man.png';
+// import Bear from './images/bear.png';
+// import Girl from './images/girl.png';
+// import Girl2 from './images/girl2.png';
+// import Man from './images/man.png';
+import baba from './images/baba.gif';
+import baba2 from './images/baba2.gif';
+import baba3 from './images/baba3.gif';
+import baba4 from './images/baba4.gif';
 
 const Wrap = styled.div`
   padding: 40px 20px;
@@ -50,7 +54,7 @@ const Team = () => (
   <Wrap>
     <Card>
       <Top>
-        <Image src={Bear} alt="" />
+        <Image src={baba} alt="" />
       </Top>
       <Name>Джамшут</Name>
       <Info>
@@ -59,7 +63,7 @@ const Team = () => (
     </Card>
     <Card>
       <Top>
-        <Image src={Girl} alt="" />
+        <Image src={baba2} alt="" />
       </Top>
       <Name>Гаффар</Name>
       <Info>
@@ -68,7 +72,7 @@ const Team = () => (
     </Card>
     <Card>
       <Top>
-        <Image src={Girl2} alt="" />
+        <Image src={baba3} alt="" />
       </Top>
       <Name>Алтынгуль</Name>
       <Info>
@@ -77,7 +81,7 @@ const Team = () => (
     </Card>
     <Card>
       <Top>
-        <Image src={Man} alt="" />
+        <Image src={baba4} alt="" />
       </Top>
       <Name>Арслон</Name>
       <Info>
