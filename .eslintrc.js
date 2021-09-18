@@ -24,6 +24,17 @@ module.exports = {
     'react/prop-types': 'off',
     'arrow-parens': 'off',
   },
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        moduleDirectory: ['node_modules', 'src'],
+      },
+    },
+    react: {
+      version: 'detect',
+    },
+  },
 };
 
 // module.exports = {

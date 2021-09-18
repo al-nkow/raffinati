@@ -52,9 +52,6 @@ const Slide = styled.div`
   //   transition: all 0.2s ease;
   // }
 
-
-
-
   span {
     z-index: 10;
     position: absolute;

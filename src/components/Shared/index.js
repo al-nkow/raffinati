@@ -6,6 +6,7 @@ export const RadioGroup = styled.div`
 `;
 
 export const RadioLabel = styled.label`
+  cursor: pointer;
   display: inline-flex;
   margin-right: 10px;
   align-items: center;
@@ -23,6 +24,7 @@ export const RadioBtn = styled.div`
   position: relative;
   border: 1px solid ${grey};
   input {
+    cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
@@ -156,4 +158,8 @@ export const Button = styled.div`
   &:hover {
     opacity: 0.9;
   }
+`;
+
+export const Section = styled.div`
+  margin-bottom: 60px;
 `;

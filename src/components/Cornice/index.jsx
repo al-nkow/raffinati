@@ -1,37 +1,27 @@
 import React, { useState } from 'react';
-import Input from '../Input';
-import OrderModal from '../OrderModal';
-
+import DecorCornice from './DecorCornice';
+import ProfileCornice from './ProfileCornice';
+import ElectroCornice from './ElectroCornice';
 import {
   SelectBase,
   Fabric,
   Cost,
   Head,
-  Label,
-  FormGroup,
-  Result,
-  Calculation,
-  Button,
 } from '../Shared';
-
 import { corniceOptions } from '../../config';
 
-const baseMap = corniceOptions.reduce((res, i) => {
-  res[i.id] = i.title;
+const corniceData = corniceOptions.reduce((res, i) => {
+  res[i.id] = i;
   return res;
 }, {});
 
 const PortiereTab = ({ option }) => {
-  const [showOrderModal, toggleModal] = useState(false);
   const [category, setCategory] = useState(option || null);
 
   const [values, setValues] = useState({
     width: null,
     corniceBase: option ? corniceOptions.find(i => i.id === option).price : null,
   });
-
-  const { width, corniceBase } = values;
-  const corniceCost = +(width * corniceBase).toFixed(2);
 
   return (
     <>
@@ -53,41 +43,10 @@ const PortiereTab = ({ option }) => {
             <Cost>Стоимость<br />{item.price} руб/метр</Cost>
           </Fabric>
         ))}
-        {/* <Fabric cap /> */}
       </SelectBase>
-      {corniceBase ? (
-        <>
-          <Head>
-            2. Укажите <i>размеры</i> карниза
-          </Head>
-          <FormGroup>
-            <Label>Длина карниза (ширина шторы)</Label>
-            <br />
-            <Input changed={w => setValues({ ...values, width: w })} placeholder="Укажите ширину в метрах" />
-          </FormGroup>
-        </>
-      ) : null}
-      {width ? (
-        <Result>
-          <Calculation>
-            Из чего складывается итоговая стоимость:
-            <div>Цена карниза: {width}м * {corniceBase}₽ = {corniceCost}₽</div>
-          </Calculation>
-          <div>
-            Итого: {corniceCost} ₽
-            <br />
-            <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
-          </div>
-        </Result>
-      ) : null}
-
-      {showOrderModal ? (
-        <OrderModal
-          details={`Карниз ${baseMap[category]?.toLowerCase()} ${width} м.`}
-          price={corniceCost}
-          close={() => toggleModal(false)}
-        />
-      ) : null}
+      {category === 'cornice1' && <ProfileCornice data={corniceData.cornice1} />}
+      {category === 'cornice2' && <DecorCornice data={corniceData.cornice2} />}
+      {category === 'cornice3' && <ElectroCornice data={corniceData.cornice3} />}
     </>
   );
 };

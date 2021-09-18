@@ -261,7 +261,7 @@ const OrderModal = ({ close, details, price }) => {
                     </FormGroup>
                   </Row>
                   <FormGroup>
-                    <Label>Адрес доставки</Label>
+                    <Label>Адрес доставки (оплачивается отдельно)</Label>
                     <Input
                       type="text"
                       name="address"

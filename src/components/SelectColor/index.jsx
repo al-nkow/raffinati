@@ -8,7 +8,8 @@ const Wrap = styled.div`
 
 const BlocksWrap = styled.div`
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 `;
 
 const Selected = styled.div`
@@ -24,6 +25,7 @@ const ColorBlock = styled.div`
   height: 170px;
   border: 2px solid #ffffff;
   margin-right: 10px;
+  margin-bottom: 10px;
   background-size: cover;
   background-position: center;
   &.active {
@@ -44,7 +46,7 @@ const SelectColor = ({ options, select, value }) => {
   return (
     <Wrap>
       <BlocksWrap>
-        {options.map(item => (
+        {options && options.map(item => (
           <ColorBlock
             className={item.title === value ? 'active' : ''}
             key={item.id}
