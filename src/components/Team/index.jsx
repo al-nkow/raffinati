@@ -1,25 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import Bear from './images/bear.png';
-// import Girl from './images/girl.png';
-// import Girl2 from './images/girl2.png';
-// import Man from './images/man.png';
-import baba from './images/baba.gif';
-import baba2 from './images/baba2.gif';
-import baba3 from './images/baba3.gif';
-import baba4 from './images/baba4.gif';
+import d1 from './images/d1.gif';
+import d3 from './images/d3.gif';
+import d4 from './images/d4.gif';
 
 const Wrap = styled.div`
   padding: 40px 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const Card = styled.div`
   padding: 10px;
   width: 22%;
-  min-height: 400px;
+  /* min-height: 400px; */
   box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   text-align: center;
@@ -27,12 +22,12 @@ const Card = styled.div`
 
 const Top = styled.div`
   position: relative;
-  height: 200px;
+  height: 236px;
   margin-bottom: 20px;
 `;
 
 const Image = styled.img`
-  max-width: 70%;
+  max-width: 100%;
   max-height: 100%;
   position: absolute;
   left: 50%;
@@ -45,48 +40,39 @@ const Name = styled.div`
   margin-bottom: 15px;
 `;
 
-const Info = styled.div`
-  font-size: 18px;
-  line-height: 26px;
-`;
+// const Info = styled.div`
+//   font-size: 18px;
+//   line-height: 26px;
+// `;
 
 const Team = () => (
   <Wrap>
     <Card>
       <Top>
-        <Image src={baba} alt="" />
+        <Image src={d1} alt="" />
       </Top>
-      <Name>Джамшут</Name>
-      <Info>
+      <Name>Александра</Name>
+      {/* <Info>
         Шторы харашо прадавание делает. Плов вкюсный готовит. Старшим не грубит.
-      </Info>
+      </Info> */}
     </Card>
     <Card>
       <Top>
-        <Image src={baba2} alt="" />
+        <Image src={d3} alt="" />
       </Top>
-      <Name>Гаффар</Name>
-      <Info>
+      <Name>Дарья</Name>
+      {/* <Info>
         Фаза вызывает нулевой меридиан. Магнитное поле потенциально.
-      </Info>
+      </Info> */}
     </Card>
     <Card>
       <Top>
-        <Image src={baba3} alt="" />
+        <Image src={d4} alt="" />
       </Top>
-      <Name>Алтынгуль</Name>
-      <Info>
+      <Name>Валерия</Name>
+      {/* <Info>
         Фаза вызывает нулевой меридиан. Магнитное поле потенциально.
-      </Info>
-    </Card>
-    <Card>
-      <Top>
-        <Image src={baba4} alt="" />
-      </Top>
-      <Name>Арслон</Name>
-      <Info>
-        Фаза вызывает нулевой меридиан. Магнитное поле потенциально.
-      </Info>
+      </Info> */}
     </Card>
   </Wrap>
 );

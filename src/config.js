@@ -1,15 +1,18 @@
-import romeTulle from './images/romeTulle.png';
-import romeBlackout from './images/romeBlackout.png';
-import romeCloth from './images/romeCloth.png';
-import tulleVeil from './images/tulleVeil.png';
-import tulleCrepe from './images/tulleCrepe.png';
-import tulleLinen from './images/tulleLinen.png';
-import portiereBlackout from './images/portiereBlackout.png';
-import portiereLight from './images/portiereLight.png';
-import portiereVeil from './images/portiereVeil.png';
-import cornice1 from './images/cornice1.jpg';
-import cornice2 from './images/cornice2.jpeg';
-import cornice3 from './images/cornice3.jpeg';
+import romeTulle from './images/romeTulle.png'; // +
+import romeBlackout from './images/romeBlackout.png'; // +
+import romeLinen from './images/romeLinen.png'; // +
+
+import tulleVeil from './images/tulleVeil.png'; // +
+import tulleCrepe from './images/tulleCrepe.png'; // +
+import tulleLinen from './images/tulleLinen.png'; // +
+
+import portiereBlackout from './images/portiereBlackout.png'; // +
+import portiereLight from './images/portiereLight.png'; // +
+import portiereBarhat from './images/portiereBarhat.png'; // +
+
+import cornice1 from './images/cornice1.jpg'; // +
+import cornice2 from './images/cornice2.jpeg'; // +
+import cornice3 from './images/cornice3.jpeg'; // +
 
 export const contentWidth = 1170;
 
@@ -31,13 +34,6 @@ export const whatsappUrl = 'https://api.whatsapp.com/send?phone=79219328089';
 
 export const romeOptions = [
   {
-    id: 'romeTulle',
-    title: 'Тюль',
-    image: romeTulle,
-    price: 1300,
-    info: 'Полупрозрачные римские шторы из тюля отлично подойдут для сохранения естественного освещения в Вашем помещении',
-  },
-  {
     id: 'romeBlackout',
     title: 'Блэкаут',
     image: romeBlackout,
@@ -47,9 +43,16 @@ export const romeOptions = [
   {
     id: 'romeCloth',
     title: 'Лён',
-    image: romeCloth,
+    image: romeLinen,
     price: 1600,
     info: 'Римская штора из портьерной ткани станет финальным штрихом и придаст помещению законченный вид',
+  },
+  {
+    id: 'romeTulle',
+    title: 'Тюль',
+    image: romeTulle,
+    price: 1300,
+    info: 'Полупрозрачные римские шторы из тюля отлично подойдут для сохранения естественного освещения в Вашем помещении',
   },
 ];
 
@@ -93,26 +96,26 @@ export const portiereOptions = [
   },
   {
     id: 'portiereVeil',
-    title: 'Вуаль',
-    image: portiereVeil,
+    title: 'Бархат',
+    image: portiereBarhat,
     price: 1837,
   },
 ];
 
 export const corniceOptions = [
   {
-    id: 'cornice1',
-    title: 'Профильный',
-    image: cornice1,
-    price: 700,
-    info: 'Представляет собой шину прямоугольного сечения с направляющими пазами. По этим прорезям перемещаются крючки или зажимы, на которых удерживаются шторы',
-  },
-  {
     id: 'cornice2',
     title: 'Декоративный',
     image: cornice2,
     price: 2000,
     info: 'Декоративные карнизы изготавливаются из дерева и латуни, могут быть хромированными и коваными',
+  },
+  {
+    id: 'cornice1',
+    title: 'Профильный',
+    image: cornice1,
+    price: 700,
+    info: 'Представляет собой шину прямоугольного сечения с направляющими пазами. По этим прорезям перемещаются крючки или зажимы, на которых удерживаются шторы',
   },
   {
     id: 'cornice3',
