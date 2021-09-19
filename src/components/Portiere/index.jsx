@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import Input from '../Input';
-import Checkbox from '../Checkbox';
-import KsInfo from '../KsInfo';
-import { portiereOptions } from '../../config';
-import OrderModal from '../OrderModal';
+import React, { useState, useEffect } from 'react';
+import Input from 'components/Input';
+import Checkbox from 'components/Checkbox';
+import KsInfo from 'components/KsInfo';
+import { portiereOptions, TAPE_PRICE, CORNICE_REG_PRICE, SEWING_BASE_PRICE } from 'config';
+import OrderModal from 'components/OrderModal';
+import SelectColor from 'components/SelectColor';
 
 import {
   Head,
@@ -14,25 +15,16 @@ import {
   Result,
   Cost,
   Calculation,
-  RadioGroup,
-  RadioLabel,
-  RadioBtn,
   Button,
 } from '../Shared';
 
-import { barhatColors, blackoutColors, tulleColors } from '../../colors';
-import SelectColor from '../SelectColor';
+import { portiereLightColors, blackoutColors, velvetColors } from '../../colors';
 
 const mapColors = {
-  portiereVeil: tulleColors,
+  portiereVelvet: velvetColors,
   portiereBlackout: blackoutColors,
-  portiereLight: barhatColors,
+  portiereLight: portiereLightColors,
 };
-
-const CORNICE_REG_PRICE = 700; // Карниз профильный - метр
-const CORNICE_DEC_PRICE = 2000; // Карниз декоративный - метр
-const TAPE_PRICE = 100; // Шторная лента цена за метр
-const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
 const baseMap = portiereOptions.reduce((res, i) => {
   res[i.id] = i.title;
@@ -52,14 +44,18 @@ const PortiereTab = ({ option }) => {
     corniceBase: CORNICE_REG_PRICE,
   });
 
-  const { base, width, waves, cornice, corniceBase } = values;
+  const { base, width, waves, cornice } = values;
 
   const materialCost = +(base * width * waves).toFixed(2);
-  const sewingCost = +(720 * width * waves).toFixed(2);
-  const tapeCost = +(width * (waves / TAPE_COEF) * TAPE_PRICE).toFixed(2);
-  const corniceCost = cornice ? +(width * corniceBase).toFixed(2) : 0;
+  const sewingCost = +(SEWING_BASE_PRICE * width * waves).toFixed(2);
+  const tapeCost = +(width * waves * TAPE_PRICE).toFixed(2);
+  const corniceCost = cornice ? +(width * CORNICE_REG_PRICE).toFixed(2) : 0;
 
   const totalPrice = +(materialCost + sewingCost + tapeCost + corniceCost).toFixed(2);
+
+  useEffect(() => {
+    setValues({ ...values, cornice: false });
+  }, [values.base]);
 
   return (
     <div>
@@ -118,45 +114,19 @@ const PortiereTab = ({ option }) => {
             checked={cornice}
             title="Добавить карниз"
           />
-          {cornice ? (
-            <RadioGroup>
-              <RadioLabel>
-                <RadioBtn checked={corniceBase === CORNICE_REG_PRICE}>
-                  <input
-                    type="radio"
-                    value="option1"
-                    checked={corniceBase === CORNICE_REG_PRICE}
-                    onChange={() => setValues({ ...values, corniceBase: CORNICE_REG_PRICE })}
-                  />
-                </RadioBtn>
-                Профильный ({CORNICE_REG_PRICE} руб/м)
-              </RadioLabel>
-              <RadioLabel>
-                <RadioBtn checked={corniceBase === CORNICE_DEC_PRICE}>
-                  <input
-                    type="radio"
-                    value="option2"
-                    checked={corniceBase === CORNICE_DEC_PRICE}
-                    onChange={() => setValues({ ...values, corniceBase: CORNICE_DEC_PRICE })}
-                  />
-                </RadioBtn>
-                Декоративный ({CORNICE_DEC_PRICE} руб/м)
-              </RadioLabel>
-            </RadioGroup>
-          ) : null}
 
           {width && waves ? (
             <Result>
               <Calculation>
                 Из чего складывается итоговая стоимость:
                 <div>Стоимость ткани: {base}₽ * {width}м * {waves} = {materialCost}₽</div>
-                <div>Цена пошива: 720 * {width}м * {waves} = {sewingCost}₽</div>
+                <div>Цена пошива: {SEWING_BASE_PRICE} * {width}м * {waves} = {sewingCost}₽</div>
                 <div>
                   Цена шторной ленты:&nbsp;
-                  {width}м * ({waves}/{TAPE_COEF}) * {TAPE_PRICE}₽ = {tapeCost}₽
+                  {width}м * {waves} * {TAPE_PRICE}₽ = {tapeCost}₽
                 </div>
                 {cornice ? (
-                  <div>Цена карниза: {width}м * {corniceBase}₽ = {corniceCost}₽</div>
+                  <div>Цена карниза: {width}м * {CORNICE_REG_PRICE}₽ = {corniceCost}₽</div>
                 ) : null}
               </Calculation>
               <div>
@@ -171,7 +141,7 @@ const PortiereTab = ({ option }) => {
             <OrderModal
               details={
                 `Портьеры (${baseMap[category]?.toLowerCase()}), цвет: ${color?.toLowerCase()}, ширина ${width} м,
-                 складка ${waves}${cornice ? `, ${corniceBase === CORNICE_REG_PRICE ? 'Профильный' : 'Декоративный'} карниз` : ''}.`
+                 складка ${waves}${cornice ? ', Профильный карниз' : ''}.`
               }
               price={totalPrice}
               close={() => toggleModal(false)}

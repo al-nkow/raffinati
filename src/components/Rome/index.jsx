@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Input from '../Input';
 import Checkbox from '../Checkbox';
 import {
@@ -15,7 +15,7 @@ import {
   RadioBtn,
   Button,
 } from '../Shared';
-import { romeOptions } from '../../config';
+import { romeOptions, TAPE_PRICE, TAPE_COEF, ROME_CORNICE_BASE_PRICE, SEWING_BASE_PRICE } from '../../config';
 import OrderModal from '../OrderModal';
 
 import { barhatColors, blackoutColors, tulleColors } from '../../colors';
@@ -26,10 +26,6 @@ const mapColors = {
   romeBlackout: blackoutColors,
   romeCloth: barhatColors,
 };
-
-const CORNICE_PRICE = 2200; // Карниз метр
-const TAPE_PRICE = 100; // Шторная лента цена за метр
-const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 
 const baseMap = romeOptions.reduce((res, i) => {
   res[i.id] = i.title;
@@ -52,11 +48,15 @@ const Rome = ({ option }) => {
   const { base, width, height, cornice, type } = values;
 
   const materialCost = +(base * width).toFixed(2);
-  const sewingCost = +(base * width * height).toFixed(2);
+  const sewingCost = +(SEWING_BASE_PRICE * width * height).toFixed(2);
   const tapeCost = +(width * (height / TAPE_COEF) * TAPE_PRICE).toFixed(2);
-  const corniceCost = cornice ? +(width * CORNICE_PRICE).toFixed(2) : 0;
+  const corniceCost = cornice ? +(width * ROME_CORNICE_BASE_PRICE).toFixed(2) : 0;
 
   const totalPrice = +(materialCost + sewingCost + tapeCost + corniceCost).toFixed(2);
+
+  useEffect(() => {
+    setValues({ ...values, cornice: false });
+  }, [values.base]);
 
   return (
     <div>
@@ -137,13 +137,13 @@ const Rome = ({ option }) => {
               <Calculation>
                 Из чего складывается итоговая стоимость:
                 <div>Стоимость ткани: {base}₽ * {width}м = {materialCost}₽</div>
-                <div>Цена пошива: {base}₽ * {width}м * {height}м = {sewingCost}₽</div>
+                <div>Цена пошива: {SEWING_BASE_PRICE}₽ * {width}м * {height}м = {sewingCost}₽</div>
                 <div>
                   Цена шторной ленты:&nbsp;
                   {width}м * ({height}м/{TAPE_COEF}) * {TAPE_PRICE}₽ = {tapeCost}₽
                 </div>
                 {cornice ? (
-                  <div>Цена карниза: {width}м * {CORNICE_PRICE}₽ = {corniceCost}₽</div>
+                  <div>Цена карниза: {width}м * {ROME_CORNICE_BASE_PRICE}₽ = {corniceCost}₽</div>
                 ) : null}
               </Calculation>
               <div>

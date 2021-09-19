@@ -1,18 +1,18 @@
-import romeTulle from './images/romeTulle.png'; // +
-import romeBlackout from './images/romeBlackout.png'; // +
-import romeLinen from './images/romeLinen.png'; // +
+import romeTulle from 'images/romeTulle.png';
+import romeBlackout from 'images/romeBlackout.png';
+import romeLinen from 'images/romeLinen.png';
 
-import tulleVeil from './images/tulleVeil.png'; // +
-import tulleCrepe from './images/tulleCrepe.png'; // +
-import tulleLinen from './images/tulleLinen.png'; // +
+import tulleVeil from 'images/tulleVeil.png';
+import tulleCrepe from 'images/tulleCrepe.png';
+import tulleLinen from 'images/tulleLinen.png';
 
-import portiereBlackout from './images/portiereBlackout.png'; // +
-import portiereLight from './images/portiereLight.png'; // +
-import portiereBarhat from './images/portiereBarhat.png'; // +
+import portiereBlackout from 'images/portiereBlackout.png';
+import portiereLight from 'images/portiereLight.png';
+import portiereBarhat from 'images/portiereBarhat.png';
 
-import cornice1 from './images/cornice1.jpg'; // +
-import cornice2 from './images/cornice2.jpeg'; // +
-import cornice3 from './images/cornice3.jpeg'; // +
+import cornice1 from 'images/cornice1.jpg';
+import cornice2 from 'images/cornice2.jpeg';
+import cornice3 from 'images/cornice3.jpeg';
 
 export const contentWidth = 1170;
 
@@ -95,10 +95,10 @@ export const portiereOptions = [
     price: 1600,
   },
   {
-    id: 'portiereVeil',
+    id: 'portiereVelvet',
     title: 'Бархат',
     image: portiereBarhat,
-    price: 1837,
+    price: 2800,
   },
 ];
 
@@ -125,3 +125,9 @@ export const corniceOptions = [
     info: 'Это карниз, в котором шторы задвигаются и раздвигаются сами с помощью компактного и тихого электромотора и встроенного механизма. Шторы с электрокарнизами сделают Ваш дом еще более современным и уютным.',
   },
 ];
+
+export const TAPE_PRICE = 100; // Шторная лента цена за метр
+export const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
+export const ROME_CORNICE_BASE_PRICE = 2200;
+export const CORNICE_REG_PRICE = corniceOptions.find(i => i.id === 'cornice1').price;
+export const SEWING_BASE_PRICE = 1400;
