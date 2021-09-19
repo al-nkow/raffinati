@@ -46,10 +46,6 @@ export const сolors = [
     id: 5,
     title: 'Черный',
     img: black,
-  }, {
-    id: 6,
-    title: 'Хуй знает какой',
-    img: black,
   },
 ];
 

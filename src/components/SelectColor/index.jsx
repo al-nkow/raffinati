@@ -20,6 +20,7 @@ const Selected = styled.div`
 `;
 
 const ColorBlock = styled.div`
+  position: relative;
   cursor: pointer;
   width: 170px;
   height: 170px;
@@ -34,34 +35,38 @@ const ColorBlock = styled.div`
   &:hover {
     border: 2px solid ${passion};
   }
+  ${({ showTitle }) => (showTitle ? `
+    &:before {
+      content: '${showTitle}';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-style: italic;
+      font-family: 'Playfair Display';
+    }
+  ` : '')}
 `;
 
-const SelectColor = ({ options, select, value }) => {
-  console.log();
-
-  const clickOptionHandler = (title) => {
-    select(title);
-  };
-
-  return (
-    <Wrap>
-      <BlocksWrap>
-        {options && options.map(item => (
-          <ColorBlock
-            className={item.title === value ? 'active' : ''}
-            key={item.id}
-            style={{ backgroundImage: `url(${item.img})` }}
-            onClick={() => clickOptionHandler(item.title)}
-          />
-        ))}
-      </BlocksWrap>
-      {value ? (
-        <Selected>
-          Вы выбрали: {value}
-        </Selected>
-      ) : ''}
-    </Wrap>
-  );
-};
+const SelectColor = ({ options, select, value, showTitle }) => (
+  <Wrap>
+    <BlocksWrap>
+      {options && options.map(item => (
+        <ColorBlock
+          className={item.title === value ? 'active' : ''}
+          key={item.id}
+          style={{ backgroundImage: `url(${item.img})` }}
+          onClick={() => select(item.title)}
+          showTitle={showTitle ? item.title : ''}
+        />
+      ))}
+    </BlocksWrap>
+    {value ? (
+      <Selected>
+        Вы выбрали: {value}
+      </Selected>
+    ) : ''}
+  </Wrap>
+);
 
 export default SelectColor;

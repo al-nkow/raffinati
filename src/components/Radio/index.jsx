@@ -9,14 +9,14 @@ const Wrap = styled.div`
   }
 `;
 
-const Radio = ({ options, onChange, value, label }) => (
+const Radio = ({ options, onChange, value, label, large }) => (
   <Wrap>
     {label && <Label>{label}</Label>}
     <RadioGroup>
       {
         options.map(item => (
           <RadioLabel key={item.id}>
-            <RadioBtn checked={value === item.value}>
+            <RadioBtn checked={value === item.value} large={large}>
               <input
                 type="radio"
                 value={item.value}
