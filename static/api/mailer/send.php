@@ -60,8 +60,8 @@ RAFFINATI
 Совершить оплату Вы можете путём перечисления стоимости заказа на карту Сбербанка<br>
 номер карты: <span style=\"font-weight:400;color:#a82d2c;\">$card</span><br>
 Дарья Никитична И.<br>
-Или осуществить перевод по номеру телефона<br>
-<span style=\"font-weight:400;color:#a82d2c;\">$orderPhone</span><br>
+Или оплатить на странице банка перейдя 
+<a href=\"https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId=ip_ikonnikova_d_n&serviceId=24817&note=Пошив%20штор&email=$email&account=$order&amount=$price\">по ссылке</a>
 В комментарии к платежу ничего указывать не надо.<br>
 Как только Ваш заказ будет готов, мы незамедлительно свяжемся с Вами.<br>
 </div>
@@ -74,7 +74,8 @@ Email: <span style=\"font-weight:400;\">$email</span><br>
 Телефон: <span style=\"font-weight:400;\">$phone</span><br>
 Адрес доставки: <span style=\"font-weight:400;\">$address</span><br>
 ".  ($notes ? "Комментарий к заказу: <span style=\"font-weight:400;\">$notes</span>" : '') ."
-</div></td></tr></tbody></table></center></td></tr></tbody></table></div>
+</div><div>Вы можете получить информацию о Вашем заказе по номеру телефона +7 (921) 932-80-89</div>
+</td></tr></tbody></table></center></td></tr></tbody></table></div>
 ";
 
 // Настройки PHPMailer
