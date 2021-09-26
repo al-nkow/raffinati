@@ -35,7 +35,7 @@ const RomeStandart = () => {
   const amount = selected.price + (cornice && corniceType ? corniceCost : 0);
 
   const summary = `Штора римская cтандарт: ${BLACKOUT.title},
-    размеры ${selected.title}, цвет ${color}${cornice ? `, корниз ${corniceType}` : ''}.`;
+    размеры ${selected.title}, цвет ${color}${cornice ? `, карниз ${corniceType}` : ''}.`;
 
   return (
     <>
@@ -91,7 +91,7 @@ const RomeStandart = () => {
             <div>
               Стандартная римская штора ({selected.title}): {selected.price}₽
               <br />
-              {cornice && corniceType ? `Корниз ${corniceType}: ${corniceCost}₽` : null}
+              {cornice && corniceType ? `+ Карниз ${corniceType}` : null}
               {/* <br />
               {wallPrice ? `Крепление на стену: ${ceilFactor} * 250 = ${wallPrice}₽` : ''} */}
             </div>

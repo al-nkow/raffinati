@@ -12,16 +12,16 @@ import {
   Calculation,
   Button,
 } from 'components/Shared';
-import { romeOptions, TAPE_PRICE, TAPE_COEF, ROME_CORNICE_BASE_PRICE, SEWING_BASE_PRICE } from 'config';
+import { romeOptions, TAPE_PRICE, TAPE_COEF, ROME_CORNICE_BASE_PRICE, ROME_SEWING_BASE_PRICE } from 'config';
 import OrderModal from 'components/OrderModal';
 
 import SelectColor from 'components/SelectColor';
-import { barhatColors, blackoutColors, tulleColors } from '../../../colors';
+import { linenColors, blackoutColors, tulleColors } from '../../../colors';
 
 const mapColors = {
   romeTulle: tulleColors,
   romeBlackout: blackoutColors,
-  romeCloth: barhatColors,
+  romeCloth: linenColors,
 };
 
 const baseMap = romeOptions.reduce((res, i) => {
@@ -45,7 +45,7 @@ const Rome = ({ option }) => {
   const { base, width, height, cornice } = values;
 
   const materialCost = +(base * width).toFixed(2);
-  const sewingCost = +(SEWING_BASE_PRICE * width * height).toFixed(2);
+  const sewingCost = +(ROME_SEWING_BASE_PRICE * width * height).toFixed(2);
   const tapeCost = +(width * (height / TAPE_COEF) * TAPE_PRICE).toFixed(2);
   const corniceCost = cornice ? +(width * ROME_CORNICE_BASE_PRICE).toFixed(2) : 0;
 
@@ -110,8 +110,9 @@ const Rome = ({ option }) => {
               <Calculation>
                 Из чего складывается итоговая стоимость:
                 <div>Стоимость ткани: {base}₽ * {width}м = {materialCost}₽</div>
-                <div>Цена пошива: {SEWING_BASE_PRICE}₽ * {width}м * {height}м = {sewingCost}₽</div>
                 <div>
+                  Цена пошива: {ROME_SEWING_BASE_PRICE}₽ * {width}м * {height}м = {sewingCost}₽
+                  <br />
                   Цена шторной ленты:&nbsp;
                   {width}м * ({height}м/{TAPE_COEF}) * {TAPE_PRICE}₽ = {tapeCost}₽
                 </div>

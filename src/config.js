@@ -130,4 +130,5 @@ export const TAPE_PRICE = 100; // Шторная лента цена за мет
 export const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
 export const ROME_CORNICE_BASE_PRICE = 2200;
 export const CORNICE_REG_PRICE = corniceOptions.find(i => i.id === 'cornice1').price;
-export const SEWING_BASE_PRICE = 1400;
+export const ROME_SEWING_BASE_PRICE = 1400;
+export const SEWING_BASE_PRICE = 800;

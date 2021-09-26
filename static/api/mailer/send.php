@@ -62,8 +62,10 @@ RAFFINATI
 Дарья Никитична И.<br>
 Или оплатить на странице банка перейдя 
 <a href=\"https://secure.openbank.ru/openapi/deploy/open_payments/index.html?partnerId=ip_ikonnikova_d_n&serviceId=24817&note=Пошив%20штор&email=$email&account=$order&amount=$price\">по ссылке</a>
+<br>
 В комментарии к платежу ничего указывать не надо.<br>
 Как только Ваш заказ будет готов, мы незамедлительно свяжемся с Вами.<br>
+<div>Вы можете получить информацию о Вашем заказе по номеру телефона <span style=\"font-weight:400;color:#a82d2c;\">+7 (921) 932-80-89</span></div>
 </div>
 <div style=\"margin:0;padding:0 24px 8px 24px;color:#242424;font-weight:400;font-size:18px;line-height:1.333;\">
 Ваши данные
@@ -74,8 +76,7 @@ Email: <span style=\"font-weight:400;\">$email</span><br>
 Телефон: <span style=\"font-weight:400;\">$phone</span><br>
 Адрес доставки: <span style=\"font-weight:400;\">$address</span><br>
 ".  ($notes ? "Комментарий к заказу: <span style=\"font-weight:400;\">$notes</span>" : '') ."
-</div><div>Вы можете получить информацию о Вашем заказе по номеру телефона +7 (921) 932-80-89</div>
-</td></tr></tbody></table></center></td></tr></tbody></table></div>
+</div></td></tr></tbody></table></center></td></tr></tbody></table></div>
 ";
 
 // Настройки PHPMailer

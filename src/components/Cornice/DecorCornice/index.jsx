@@ -29,6 +29,11 @@ const DecorCornice = ({ data }) => {
 
   const corniceCost = params.size * data.price;
 
+  const tipPrice = useMemo(
+    () => tipsList.find(item => item.title === params.tip)?.price,
+    [params.tip],
+  );
+
   const summary = `Карниз: ${data.title.toLocaleLowerCase()},
     длина ${params.size}м,
     ${params.type && getTitle(corniceTypes, params.type).toLocaleLowerCase()},
@@ -41,6 +46,8 @@ const DecorCornice = ({ data }) => {
     const isDoubleValue = item.value.includes('/');
     return params.type === 'double' ? isDoubleValue : !isDoubleValue;
   }), [params.type]);
+
+  const amount = corniceCost + tipPrice;
 
   useEffect(() => setParams({ ...params, diameter: params.type === 'double' ? '16/16' : '16' }), [params.type]);
 
@@ -116,9 +123,10 @@ const DecorCornice = ({ data }) => {
           <Calculation>
             Из чего складывается итоговая стоимость:
             <div>Цена карниза: {params.size}м * {data.price}₽ = {corniceCost}₽</div>
+            <div>Стоимость наконечника: {tipPrice}₽</div>
           </Calculation>
           <div>
-            Итого: {corniceCost}₽
+            Итого: {amount}₽
             <br />
             <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
@@ -127,7 +135,7 @@ const DecorCornice = ({ data }) => {
       {showOrderModal ? (
         <OrderModal
           details={summary}
-          price={corniceCost}
+          price={amount}
           close={() => toggleModal(false)}
         />
       ) : null}

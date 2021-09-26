@@ -38,6 +38,40 @@ import velvetBlue from 'images/colors/velvetBlue.jpg';
 import velvetDarkGrey from 'images/colors/velvetDarkGrey.jpg';
 import velvetBrown from 'images/colors/velvetBrown.jpg';
 
+import linenMilk from 'images/colors/linenMilk.jpg';
+import linenGrey from 'images/colors/linenGrey.png';
+import linenWhite from 'images/colors/linenWhite.jpg';
+import linenStriped from 'images/colors/linenStriped.jpg';
+import linenYellow from 'images/colors/linenYellow.png';
+
+export const linenColors = [
+  {
+    id: 1,
+    title: 'Белый',
+    img: linenWhite,
+  },
+  {
+    id: 2,
+    title: 'Полосатый',
+    img: linenStriped,
+  },
+  {
+    id: 3,
+    title: 'Жёлтый',
+    img: linenYellow,
+  },
+  {
+    id: 4,
+    title: 'Молочный',
+    img: linenMilk,
+  },
+  {
+    id: 5,
+    title: 'Серый',
+    img: linenGrey,
+  },
+];
+
 export const barhatColors = [
   {
     id: 1,

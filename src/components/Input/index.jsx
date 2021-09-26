@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { grey } from '../../config';
 
@@ -12,10 +12,10 @@ const TextField = styled.input`
   font-size: 16px;
 `;
 
-const Input = ({ changed, placeholder }) => {
+const Input = ({ changed, placeholder, max = 10000, value }) => {
+  const inpRef = useRef(null);
   const setValue = (event) => {
-    const { value } = event.target;
-    let val = value.replace(/[,]/g, '.').replace(/[^0-9.]/g, '');
+    let val = event.target.value.replace(/[,]/g, '.').replace(/[^0-9.]/g, '');
 
     if (val.indexOf('.') !== -1) {
       const arr = val.split('.');
@@ -25,14 +25,22 @@ const Input = ({ changed, placeholder }) => {
       }
     }
 
-    if (val > 100000) val = 100000;
-    if (val[0] === '.') val = '0' + val;
+    if (val > max) val = max;
+    if (val[0] === '.') val = `0${val}`;
 
+    // eslint-disable-next-line no-param-reassign
     event.target.value = val;
     changed(+val);
   };
 
-  return <TextField type="text" onChange={setValue} placeholder={placeholder} />;
+  useEffect(() => {
+    if (value > max) {
+      changed(max);
+      inpRef.current.value = max;
+    }
+  }, [value, max]);
+
+  return <TextField ref={inpRef} type="text" onChange={setValue} placeholder={placeholder} />;
 };
 
 export default Input;

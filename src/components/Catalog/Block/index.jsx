@@ -10,7 +10,8 @@ const Image = styled.img`
 
 const Wrap = styled.div`
   display: flex;
-  margin-bottom: 191px;
+  padding-top: 40px;
+  margin-bottom: 151px;
   ${({ swap }) => (swap ? 'flex-direction: row-reverse;' : '')}
 `;
 
