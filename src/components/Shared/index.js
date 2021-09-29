@@ -81,6 +81,7 @@ export const Fabric = styled.div`
   ${({ active }) => (active ? `
     color: #ffffff;
     border-color: ${passion};
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   ` : '')}
   &:before {
     content: '';
@@ -132,6 +133,9 @@ export const Cost = styled.div`
   font-weight: 400;
   text-align: center;
   line-height: 20px;
+  ${(props) => (
+    props.transp ? 'opacity: 0;' : ''
+  )}
 `;
 
 export const Calculation = styled.div`

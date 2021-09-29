@@ -14,7 +14,22 @@ import Input from 'components/Input';
 import OrderModal from 'components/OrderModal';
 import { getTitle } from 'utils';
 
-import { сolors, factSheet, corniceTypes, diametersList, tipsList } from './data';
+import { сolors, factSheet, corniceTypes, diametersList, tipsList, decorPrices } from './data';
+
+const factNamesMap = factSheet.reduce((res, i) => {
+  res[i.value] = i.title;
+  return res;
+}, {});
+
+const getCornicePrice = (size, type, diameter, fact) => {
+  if (!size || !type || !diameter || !fact) return 0;
+  const k = Math.ceil(size / 0.2);
+  const estSize = Math.round(k * 2) / 10;
+  const pricesMap = decorPrices[type] && decorPrices[type][diameter]
+    ? decorPrices[type][diameter][fact]
+    : null;
+  return pricesMap ? pricesMap.get(estSize) : 0;
+};
 
 const DecorCornice = ({ data }) => {
   const [showOrderModal, toggleModal] = useState(false);
@@ -27,12 +42,12 @@ const DecorCornice = ({ data }) => {
     tip: '',
   });
 
-  const corniceCost = params.size * data.price;
-
+  const corniceCost = getCornicePrice(params.size, params.type, params.diameter, params.fact);
   const tipPrice = useMemo(
     () => tipsList.find(item => item.title === params.tip)?.price,
     [params.tip],
   );
+  const amount = corniceCost + tipPrice;
 
   const summary = `Карниз: ${data.title.toLocaleLowerCase()},
     длина ${params.size}м,
@@ -47,9 +62,7 @@ const DecorCornice = ({ data }) => {
     return params.type === 'double' ? isDoubleValue : !isDoubleValue;
   }), [params.type]);
 
-  const amount = corniceCost + tipPrice;
-
-  useEffect(() => setParams({ ...params, diameter: params.type === 'double' ? '16/16' : '16' }), [params.type]);
+  useEffect(() => setParams({ ...params, diameter: params.type === 'double' ? 'r16/16' : 'r16' }), [params.type]);
 
   return (
     <>
@@ -70,6 +83,8 @@ const DecorCornice = ({ data }) => {
             options={factSheet}
             select={fact => setParams({ ...params, fact })}
             value={params.fact}
+            keyName="value"
+            title={factNamesMap[params.fact]}
           />
         </>
       ) : null}
@@ -100,7 +115,8 @@ const DecorCornice = ({ data }) => {
               <br />
               <Input
                 changed={size => setParams({ ...params, size })}
-                placeholder="Укажите ширину в метрах"
+                placeholder="Укажите ширину в метрах (макс. 4 метра)"
+                max={4}
               />
             </FormGroup>
           </Section>
@@ -122,7 +138,7 @@ const DecorCornice = ({ data }) => {
         <Result>
           <Calculation>
             Из чего складывается итоговая стоимость:
-            <div>Цена карниза: {params.size}м * {data.price}₽ = {corniceCost}₽</div>
+            <div>Цена карниза: {corniceCost}₽</div>
             <div>Стоимость наконечника: {tipPrice}₽</div>
           </Calculation>
           <div>

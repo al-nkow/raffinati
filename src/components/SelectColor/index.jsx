@@ -48,22 +48,22 @@ const ColorBlock = styled.div`
   ` : '')}
 `;
 
-const SelectColor = ({ options, select, value, showTitle }) => (
+const SelectColor = ({ options, select, value, showTitle, keyName, title }) => (
   <Wrap>
     <BlocksWrap>
       {options && options.map(item => (
         <ColorBlock
-          className={item.title === value ? 'active' : ''}
+          className={item[keyName || 'title'] === value ? 'active' : ''}
           key={item.id}
           style={{ backgroundImage: `url(${item.img})` }}
-          onClick={() => select(item.title)}
-          showTitle={showTitle ? item.title : ''}
+          onClick={() => select(item[keyName || 'title'])}
+          showTitle={showTitle ? item[keyName || 'title'] : ''}
         />
       ))}
     </BlocksWrap>
     {value ? (
       <Selected>
-        Вы выбрали: {value}
+        Вы выбрали: {title || value}
       </Selected>
     ) : ''}
   </Wrap>

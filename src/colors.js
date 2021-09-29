@@ -75,22 +75,22 @@ export const linenColors = [
 export const barhatColors = [
   {
     id: 1,
-    title: 'Бархат шоколад',
+    title: 'Шоколад',
     img: barhatChocolate,
   },
   {
     id: 2,
-    title: 'Бархат кофейный',
+    title: 'Кофейный',
     img: barhatCoffee,
   },
   {
     id: 3,
-    title: 'Бархат песочный',
+    title: 'Песочный',
     img: barhatSand,
   },
   {
     id: 4,
-    title: 'Бархат серый',
+    title: 'Серый',
     img: barhatGrey,
   },
 ];
@@ -98,32 +98,32 @@ export const barhatColors = [
 export const blackoutColors = [
   {
     id: 3,
-    title: 'Блэкаут серый',
+    title: 'Серый',
     img: blackoutGrey,
   },
   {
     id: 5,
-    title: 'Блэкаут светло-серый',
+    title: 'Светло-серый',
     img: blackoutLightGrey,
   },
   {
     id: 6,
-    title: 'Блэкаут песочный',
+    title: 'Песочный',
     img: blackoutSand,
   },
   {
     id: 2,
-    title: 'Блэкаут шоколад',
+    title: 'Шоколад',
     img: blackoutChocolate,
   },
   {
     id: 4,
-    title: 'Блэкаут лаванда',
+    title: 'Лаванда',
     img: blackoutLavanda,
   },
   {
     id: 1,
-    title: 'Блэкаут голубой',
+    title: 'Голубой',
     img: blackoutBlue,
   },
 ];
@@ -131,22 +131,22 @@ export const blackoutColors = [
 export const tulleColors = [
   {
     id: 1,
-    title: 'Вуаль белая',
+    title: 'Белая',
     img: tulleWhite,
   },
   {
     id: 2,
-    title: 'Вуаль молочная',
+    title: 'Молочная',
     img: tulleMilk,
   },
   {
     id: 3,
-    title: 'Вуаль серая',
+    title: 'Серая',
     img: tulleGrey,
   },
   {
     id: 4,
-    title: 'Вуаль розовая',
+    title: 'Розовая',
     img: tullePink,
   },
   // {
@@ -159,19 +159,19 @@ export const tulleColors = [
 export const crepeColors = [
   {
     id: 1,
-    title: 'Креп кофейный',
+    title: 'Кофейный',
     img: crepeKofejnyj,
   }, {
     id: 2,
-    title: 'Креп кремовый',
+    title: 'Кремовый',
     img: crepeKremoviy,
   }, {
     id: 3,
-    title: 'Креп молочный',
+    title: 'Молочный',
     img: crepeMolochniy,
   }, {
     id: 4,
-    title: 'Креп белый',
+    title: 'Белый',
     img: crepeWhite,
   },
 ];

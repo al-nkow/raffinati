@@ -5,7 +5,7 @@ import AccBlock from '../AccBlock';
 import Team from '../Team';
 // import Review from '../Review';
 import Contacts from '../Contacts';
-import { contentWidth, text, red, passion, whatsappUrl } from '../../config';
+import { contentWidth, text, passion, whatsappUrl } from '../../config';
 
 import icon1 from './images/icon1.svg';
 import icon2 from './images/icon2.svg';
@@ -51,7 +51,7 @@ const Ul = styled.ul`
       top: 8px;
       width: 10px;
       height: 10px;
-      background: ${red};
+      background: ${passion};
       border-radius: 50%;
     }
   }
