@@ -52,12 +52,12 @@ export const linenColors = [
   },
   {
     id: 2,
-    title: 'Полосатый',
+    title: 'С фактурой',
     img: linenStriped,
   },
   {
     id: 3,
-    title: 'Жёлтый',
+    title: 'Песочный',
     img: linenYellow,
   },
   {

@@ -1,4 +1,4 @@
-import lift from './images/lift.jpeg';
+import lift from './images/lift.png';
 import sliding from './images/sliding.png';
 
 export const countries = [
@@ -131,8 +131,7 @@ export const pricesLift = {
     cornice: franceLiftCorniceMap,
     pult: {
       cOne: 5300,
-      cFive: 12000,
-      cSixteen: 26000,
+      cFive: 8000,
     },
   },
   china: {
@@ -140,7 +139,7 @@ export const pricesLift = {
     pult: {
       cOne: 2700,
       cFive: 4100,
-      cSixteen: 5200,
+      // cSixteen: 5200,
     },
   },
   russia: {

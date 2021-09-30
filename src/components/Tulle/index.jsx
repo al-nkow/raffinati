@@ -18,12 +18,12 @@ import {
 } from 'components/Shared';
 
 import SelectColor from 'components/SelectColor';
-import { barhatColors, tulleColors, crepeColors } from '../../colors';
+import { linenColors, tulleColors, crepeColors } from '../../colors';
 
 const mapColors = {
   tulleVeil: tulleColors,
   tulleCrepe: crepeColors,
-  tulleLinen: barhatColors,
+  tulleLinen: linenColors,
 };
 
 const baseMap = tulleOptions.reduce((res, i) => {

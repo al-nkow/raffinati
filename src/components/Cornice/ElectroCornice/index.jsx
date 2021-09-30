@@ -137,7 +137,7 @@ const ElectroCornice = ({ data }) => {
       {showOrderModal ? (
         <OrderModal
           details={summary}
-          price={corniceCost}
+          price={amount}
           close={() => toggleModal(false)}
         />
       ) : null}
