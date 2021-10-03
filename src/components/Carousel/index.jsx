@@ -63,7 +63,7 @@ const Slide = styled.div`
     font-size: 44px;
     opacity: 0;
     transition: all 0.2s ease;
-    text-shadow: 0 0 5px rgba(0,0,0,0.2);
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
   }
   ${(props) => (props.active ? `
     background: #dedede;
@@ -71,7 +71,7 @@ const Slide = styled.div`
       opacity: 1;
       z-index: 4;
       transform: translate(-50%, -50%) scale(1.6);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
     }
     span {
       opacity: 1;

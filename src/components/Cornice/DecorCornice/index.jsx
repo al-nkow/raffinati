@@ -47,7 +47,7 @@ const DecorCornice = ({ data }) => {
     () => tipsList.find(item => item.title === params.tip)?.price,
     [params.tip],
   );
-  const amount = corniceCost + tipPrice;
+  const amount = corniceCost + tipPrice * 2;
 
   const summary = `Карниз: ${data.title.toLocaleLowerCase()},
     длина ${params.size}м,
@@ -139,7 +139,7 @@ const DecorCornice = ({ data }) => {
           <Calculation>
             Из чего складывается итоговая стоимость:
             <div>Цена карниза: {corniceCost}₽</div>
-            <div>Стоимость наконечника: {tipPrice}₽</div>
+            <div>Стоимость наконечника: {tipPrice} * 2 = {tipPrice * 2}₽</div>
           </Calculation>
           <div>
             Итого: {amount}₽

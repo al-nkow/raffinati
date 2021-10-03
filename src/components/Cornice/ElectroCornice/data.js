@@ -1,5 +1,5 @@
 import lift from './images/lift.png';
-import sliding from './images/sliding.png';
+import sliding from './images/sliding.jpg';
 
 export const countries = [
   {
