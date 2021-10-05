@@ -1,12 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
-import { contentWidth, romeOptions, tulleOptions, portiereOptions, corniceOptions } from '../../config';
+import { Wrap } from 'components/Shared';
+import { romeOptions, tulleOptions, portiereOptions, corniceOptions } from '../../config';
 import Block from './Block';
-
-const Wrap = styled.div`
-  width: ${contentWidth}px;
-  margin: 0 auto;
-`;
 
 const Catalog = () => (
   <Wrap id="catalog">

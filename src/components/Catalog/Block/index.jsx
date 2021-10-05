@@ -24,8 +24,6 @@ const Col = styled.div`
   }
   &:last-child {
     ${({ swap }) => (swap ? 'padding-right: 15px' : 'padding-left: 15px')};
-    flex: none;
-    width: 50%;
   }
 `;
 

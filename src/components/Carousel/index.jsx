@@ -63,7 +63,7 @@ const Slide = styled.div`
     font-size: 44px;
     opacity: 0;
     transition: all 0.2s ease;
-    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    text-shadow: 0 0 7px rgba(0,0,0,0.7);
   }
   ${(props) => (props.active ? `
     background: #dedede;

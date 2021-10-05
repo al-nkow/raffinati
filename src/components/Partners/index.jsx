@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import AccBlock from '../AccBlock';
-import { contentWidth, grey, light } from '../../config';
+import { Wrap as MainWrap } from 'components/Shared';
+import AccBlock from 'components/AccBlock';
+import { grey, light } from '../../config';
 
 import icon1 from './images/icon1.svg';
 import icon2 from './images/icon2.svg';
@@ -14,9 +15,7 @@ const Wrap = styled.div`
   background: ${grey};
 `;
 
-const Inner = styled.div`
-  width: ${contentWidth}px;
-  margin: 0 auto;
+const Inner = styled(MainWrap)`
   border-bottom: 2px solid ${light};
 `;
 

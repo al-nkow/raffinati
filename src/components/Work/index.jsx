@@ -1,11 +1,12 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
+import { Wrap as MainWrap } from 'components/Shared';
 import AccBlock from '../AccBlock';
 import Team from '../Team';
 // import Review from '../Review';
 import Contacts from '../Contacts';
-import { contentWidth, text, passion, whatsappUrl } from '../../config';
+import { text, passion, whatsappUrl } from '../../config';
 
 import icon1 from './images/icon1.svg';
 import icon2 from './images/icon2.svg';
@@ -14,9 +15,7 @@ import icon4 from './images/icon4.svg';
 import icon5 from './images/icon5.svg';
 // import icon6 from './images/icon6.svg';
 
-const Wrap = styled.div`
-  width: ${contentWidth}px;
-  margin: 0 auto;
+const Wrap = styled(MainWrap)`
   border-bottom: 2px solid ${text};
   margin-bottom: 213px;
 `;

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import Burger from 'components/Burger';
 import { Link } from 'gatsby';
 import Logo from './images/logo.png';
-import { passion, contentWidth, mainbg, instaUrl, whatsappUrl } from '../../config';
+import { passion, contentWidth, mainbg, instaUrl, whatsappUrl, text, gray76, MENU_BP } from '../../config';
 
 const Wrap = styled.div`
   background: ${mainbg};
@@ -16,7 +17,8 @@ const Wrap = styled.div`
 
 const Content = styled.div`
   transition: all 0.2s ease;
-  width: ${contentWidth}px;
+  max-width: ${contentWidth}px;
+  width: 95%;
   height: ${({ shrink }) => (shrink ? '50' : '100')}px;
   margin: 0 auto;
   display: flex;
@@ -32,6 +34,9 @@ const Image = styled.img`
 const Menu = styled.div`
   display: flex;
   align-items: center;
+  ${MENU_BP} {
+    display: none;
+  }
 `;
 
 const MenuItem = styled(Link)`
@@ -63,7 +68,7 @@ const MenuItem = styled(Link)`
     }
   }
   text-decoration: none;
-  color: #333333;
+  color: ${text};
 `;
 
 const Social = styled.a`
@@ -73,7 +78,7 @@ const Social = styled.a`
     margin-left: 30px;
   }
   svg {
-    fill: #767676;
+    fill: ${gray76};
   }
   &:hover {
     svg {
@@ -143,6 +148,7 @@ const Header = ({ main, setScrollToElem }) => {
             </svg>
           </Social>
         </Menu>
+        <Burger />
       </Content>
     </Wrap>
   );

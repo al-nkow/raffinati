@@ -16,6 +16,9 @@ import cornice3 from 'images/cornice3.jpeg';
 
 export const contentWidth = 1170;
 
+// Breakpoints
+export const MENU_BP = '@media only screen and (max-width: 938px)';
+
 export const passion = '#a82d2c';
 export const grey = '#767676';
 export const lightGrey = '#F4F0ED';
@@ -25,6 +28,7 @@ export const red = '#e82727';
 export const mainbg = '#E7E2DF';
 
 export const gray74 = '#bdbdbd';
+export const gray76 = '#767676';
 export const gray31 = '#4f4f4f';
 
 export const phone = '+7 (921) 932-80-89';

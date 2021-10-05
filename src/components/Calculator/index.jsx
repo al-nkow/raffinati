@@ -1,17 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { Wrap } from 'components/Shared';
 import Tabs from '../Tabs';
 import Rome from '../Rome';
 import Tulle from '../Tulle';
 import Portiere from '../Portiere';
 import Cornice from '../Cornice';
-import { contentWidth, grey, text } from '../../config';
-
-const Wrap = styled.div`
-  width: ${contentWidth}px;
-  margin: 0 auto;
-`;
+import { grey, text } from '../../config';
 
 const Back = styled(Link)`
   margin-bottom: 30px;

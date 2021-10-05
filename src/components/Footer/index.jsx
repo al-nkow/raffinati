@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Wrap as MainWrap } from 'components/Shared';
 import Logo from './images/logo.png';
-import { email, phone, text, contentWidth, light, gray74, instaUrl, whatsappUrl } from '../../config';
+import { email, phone, text, light, gray74, instaUrl, whatsappUrl } from '../../config';
 
 const Wrap = styled.div`
   background: ${text};
 `;
 
-const Inner = styled.div`
+const Inner = styled(MainWrap)`
   padding: 74px 0;
-  width: ${contentWidth}px;
-  margin: 0 auto;
   color: ${light};
 `;
 
@@ -63,9 +62,7 @@ const UnderFooter = styled.div`
   color: #777777;
 `;
 
-const Copyright = styled.div`
-  width: ${contentWidth}px;
-  margin: 0 auto;
+const Copyright = styled(MainWrap)`
   padding: 20px 0;
   font-size: 16px;
 `;

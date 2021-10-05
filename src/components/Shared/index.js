@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import { passion, grey, light } from '../../config';
+import { passion, grey, light, contentWidth } from '../../config';
+
+export const Wrap = styled.div`
+  max-width: ${contentWidth}px;
+  width: 95%;
+  margin: 0 auto;
+`;
 
 export const RadioGroup = styled.div`
   margin-bottom: 20px;
