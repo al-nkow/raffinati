@@ -245,9 +245,14 @@ textarea {
 /* =========================== */
 
 body {
+  -webkit-font-smoothing: antialiased;
   background: #E7E2DF; /* #fdfaf7; */
   font-family: Helvetica, Arial, sans-serif;
   color: #333333;
   font-size: 18px;
   padding-top: 100px;
+}
+
+.main-wrapper {
+  overflow: hidden;
 }

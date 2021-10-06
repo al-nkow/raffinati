@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { passion, gray76, MENU_BP } from '../../config';
 
 const Wrap = styled.div`
   display: none;
   ${MENU_BP} {
+    margin-top: -10px;
     display: block;
   }
 `;
@@ -29,28 +30,14 @@ const Icon = styled.div`
   }
 `;
 
-const MobMenu = styled.div`
-  width: 500px;
-  height: 500px;
-  background: black;
-  position: fixed;
-  top: 80px;
-  right: 0;
-`;
-
-const Burger = () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <Wrap>
-      <Icon onClick={() => setOpen(!open)}>
-        <div />
-        <div />
-        <div />
-      </Icon>
-      {open && <MobMenu />}
-    </Wrap>
-  );
-};
+const Burger = ({ onClick }) => (
+  <Wrap>
+    <Icon onClick={onClick}>
+      <div />
+      <div />
+      <div />
+    </Icon>
+  </Wrap>
+);
 
 export default Burger;

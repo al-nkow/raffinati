@@ -36,6 +36,13 @@ export const email = 'info@raffinati.org';
 export const instaUrl = 'https://instagram.com/raffinati_textile?r=nametag';
 export const whatsappUrl = 'https://api.whatsapp.com/send?phone=79219328089';
 
+export const menuItems = [
+  {
+    name: '',
+    link: '',
+  },
+];
+
 export const romeOptions = [
   {
     id: 'romeBlackout',
