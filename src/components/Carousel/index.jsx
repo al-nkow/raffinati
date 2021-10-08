@@ -1,10 +1,22 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { useStaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 
-const slideSize = 200;
+const winSize = typeof window !== 'undefined' ? window.innerWidth : null;
+const slideSize = !winSize
+  ? 200
+  : winSize < 1000 && winSize >= 630
+    ? 120
+    : winSize < 630 && winSize >= 530
+      ? 100
+      : winSize < 530 && winSize >= 400
+        ? 76
+        : winSize < 400
+          ? 60
+          : 200;
 
 const Wrap = styled.div`
   width: ${slideSize * 5}px;
@@ -12,6 +24,7 @@ const Wrap = styled.div`
 `;
 
 const Slider = styled.div`
+  will-change: transform;
   display: flex;
   transform: translate(${(props) => props.move}px, 0);
   transition: all 0.2s linear;
@@ -26,8 +39,6 @@ const Slide = styled.div`
   font-size: 20px;
   transition: all 0.2s ease;
 
-
-
   .gatsby-image-wrapper {
     border-radius: 2px;
     display: block;
@@ -38,6 +49,11 @@ const Slide = styled.div`
     transform: translate(-50%, -50%) scale(0.6);
     opacity: 0.8;
     transition: all 0.2s ease;
+    max-width: 100%;
+    max-height: ${slideSize * 1.8}px;
+    img {
+      max-width: 100%;
+    }
   }
 
   // img {
@@ -52,7 +68,7 @@ const Slide = styled.div`
   //   transition: all 0.2s ease;
   // }
 
-  span {
+  .title {
     z-index: 10;
     position: absolute;
     top: 50%;
@@ -64,6 +80,12 @@ const Slide = styled.div`
     opacity: 0;
     transition: all 0.2s ease;
     text-shadow: 0 0 7px rgba(0,0,0,0.7);
+    @media only screen and (max-width: 1000px) {
+      font-size: 32px;
+    }
+    @media only screen and (max-width: 530px) {
+      font-size: 22px;
+    }
   }
   ${(props) => (props.active ? `
     background: #dedede;
@@ -73,7 +95,7 @@ const Slide = styled.div`
       transform: translate(-50%, -50%) scale(1.6);
       box-shadow: 0 1px 7px rgba(0, 0, 0, 0.4);
     }
-    span {
+    .title {
       opacity: 1;
     }
   ` : '')}
@@ -201,7 +223,7 @@ const Carousel = () => {
             {/* <img src={item.url} alt="" /> */}
             {/* <Img fixed={data.placeholderImage.childImageSharp.fixed} alt="" /> */}
             <Img fixed={item.url} alt="" />
-            <span>{item.title}</span>
+            <span className="title">{item.title}</span>
             {/* loading="eager" */}
           </Slide>
         ))}

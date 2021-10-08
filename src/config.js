@@ -17,7 +17,11 @@ import cornice3 from 'images/cornice3.jpeg';
 export const contentWidth = 1170;
 
 // Breakpoints
-export const MENU_BP = '@media only screen and (max-width: 938px)';
+export const BP_0 = '@media only screen and (max-width: 1064px)';
+export const BP_1 = '@media only screen and (max-width: 938px)';
+export const BP_2 = '@media only screen and (max-width: 734px)';
+export const BP_21 = '@media only screen and (max-width: 767px)';
+export const BP_3 = '@media only screen and (max-width: 400px)';
 
 export const passion = '#a82d2c';
 export const grey = '#767676';

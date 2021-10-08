@@ -23,6 +23,7 @@ module.exports = {
     'object-curly-newline': 'off',
     'react/prop-types': 'off',
     'arrow-parens': 'off',
+    camelcase: 'off',
   },
   settings: {
     'import/resolver': {

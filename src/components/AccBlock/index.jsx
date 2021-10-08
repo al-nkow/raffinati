@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { passion, text, light as lightColor } from '../../config';
+import { passion, text, BP_21, light as lightColor } from '../../config';
 
 const Head = styled.div`
   border-top: 2px solid ${({ light }) => (light ? lightColor : text)};
@@ -11,7 +11,12 @@ const Head = styled.div`
   display: flex;
   align-items: center;
   font-size: 20px;
-  ${({ light }) => (light ? `color: ${lightColor}` : '')}
+  ${({ light }) => (light ? `color: ${lightColor};` : '')}
+  ${BP_21} {
+    padding-left: 95px;
+    padding-right: 60px;
+    line-height: 22px;
+  }
 `;
 
 const Image = styled.img`
@@ -19,6 +24,10 @@ const Image = styled.img`
   top: 50%;
   left: 40px;
   transform: translate(0, -50%);
+  ${BP_21} {
+    left: 10px;
+    width: 54px;
+  }
 `;
 
 const Button = styled.div`
@@ -45,6 +54,9 @@ const Button = styled.div`
         stroke: ${passion};
       }
     }
+  }
+  ${BP_21} {
+    right: 10px;
   }
 `;
 

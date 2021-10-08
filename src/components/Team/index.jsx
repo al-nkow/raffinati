@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BP_0, BP_21, light } from 'config';
 
 import d1 from './images/d1.gif';
 import d3 from './images/d3.gif';
@@ -9,15 +10,28 @@ const Wrap = styled.div`
   padding: 40px 20px;
   display: flex;
   justify-content: space-around;
+  ${BP_21} {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 const Card = styled.div`
+  background: ${light};
+  box-sizing: border-box;
   padding: 10px;
   width: 22%;
   /* min-height: 400px; */
   box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   text-align: center;
+  ${BP_0} {
+    width: 31%;
+  }
+  ${BP_21} {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Top = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Burger from 'components/Burger';
 import { Link } from 'gatsby';
 import Logo from './images/logo.png';
-import { passion, contentWidth, mainbg, instaUrl, whatsappUrl, text, gray76, MENU_BP } from '../../config';
+import { passion, contentWidth, mainbg, instaUrl, whatsappUrl, text, gray76, BP_1 } from '../../config';
 
 const Wrap = styled.div`
   background: ${mainbg};
@@ -24,18 +24,24 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (max-width: 414px) {
+    height: 50px;
+  }
 `;
 
 const Image = styled.img`
   transition: all 0.2s ease;
   width: ${({ shrink }) => (shrink ? '140' : '170')}px;
+  @media only screen and (max-width: 414px) {
+    width: 140px;
+  }
 `;
 
 const Menu = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  ${MENU_BP} {
+  ${BP_1} {
     will-change: transform, opacity;
     transition: all 0.18s linear;
     transform: translateX(500px);
@@ -50,7 +56,7 @@ const Menu = styled.div`
     right: 10px;
     background: #ffffff;
     max-width: 400px;
-    width: 100%;
+    width: 80%;
     flex-direction: column;
     align-items: start;
     Social {
@@ -89,7 +95,7 @@ const MenuItem = styled(Link)`
   }
   text-decoration: none;
   color: ${text};
-  ${MENU_BP} {
+  ${BP_1} {
     padding: 10px 0;
     margin-bottom: 10px;
     font-family: 'Playfair Display';
@@ -109,7 +115,7 @@ const MenuItem = styled(Link)`
 
 const SocialWrap = styled.div`
   display: flex;
-  ${MENU_BP} {
+  ${BP_1} {
     padding: 20px 0;
   }
 `;
@@ -158,7 +164,7 @@ const CloseBtn = styled.div`
     ${beforeAfter};
     transform: rotate(-45deg);
   }
-  ${MENU_BP} {
+  ${BP_1} {
     display: block;
   }
 `;

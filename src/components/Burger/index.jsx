@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { passion, gray76, MENU_BP } from '../../config';
+import { passion, gray76, BP_1 } from '../../config';
 
 const Wrap = styled.div`
   display: none;
-  ${MENU_BP} {
-    margin-top: -10px;
+  ${BP_1} {
     display: block;
   }
 `;
@@ -15,7 +14,6 @@ const Icon = styled.div`
   cursor: pointer;
   width: 34px;
   height: 24px;
-  margin-left: 30px;
   flex-direction: column;
   justify-content: space-between;
   div {

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Wrap as MainWrap } from 'components/Shared';
 import AccBlock from 'components/AccBlock';
-import { grey, light } from '../../config';
+import { grey, light, BP_21 } from '../../config';
 
 import icon1 from './images/icon1.svg';
 import icon2 from './images/icon2.svg';
@@ -13,6 +13,9 @@ import icon5 from './images/icon5.svg';
 const Wrap = styled.div`
   padding: 200px 0;
   background: ${grey};
+  ${BP_21} {
+    padding: 100px 0;
+  }
 `;
 
 const Inner = styled(MainWrap)`
@@ -28,6 +31,11 @@ const Title = styled.h2`
   font-family: 'Playfair Display';
   font-weight: 400;
   font-style: italic;
+  ${BP_21} {
+    font-size: 40px;
+    line-height: 56px;
+    margin-bottom: 60px;
+  }
 `;
 
 const Partners = () => (

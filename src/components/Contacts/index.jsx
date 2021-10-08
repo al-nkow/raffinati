@@ -2,12 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import { YMaps, Map, Placemark } from 'react-yandex-maps';
 
-import { phone, text, passion } from '../../config';
+import { phone, text, passion, BP_21 } from '../../config';
 
 const Wrap = styled.div`
   padding: 40px 20px;
   display: flex;
   justify-content: space-between;
+  ${BP_21} {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 const Card = styled.div`
@@ -16,6 +20,10 @@ const Card = styled.div`
   box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   background: #fdfaf7;
+  ${BP_21} {
+    width: 100%;
+    margin-bottom: 20px;
+  }
 `;
 
 const Content = styled.div`

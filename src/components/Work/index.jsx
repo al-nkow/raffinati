@@ -6,7 +6,7 @@ import AccBlock from '../AccBlock';
 import Team from '../Team';
 // import Review from '../Review';
 import Contacts from '../Contacts';
-import { text, passion, whatsappUrl } from '../../config';
+import { text, passion, whatsappUrl, BP_21 } from '../../config';
 
 import icon1 from './images/icon1.svg';
 import icon2 from './images/icon2.svg';
@@ -18,11 +18,17 @@ import icon5 from './images/icon5.svg';
 const Wrap = styled(MainWrap)`
   border-bottom: 2px solid ${text};
   margin-bottom: 213px;
+  ${BP_21} {
+    margin-bottom: 100px;
+  }
 `;
 
 const SomeCmp = styled.div`
   padding: 40px;
-  opacity: 0.8;
+  opacity: 0.9;
+  ${BP_21} {
+    padding: 10px;
+  }
 `;
 
 const Title = styled.h2`
@@ -33,6 +39,11 @@ const Title = styled.h2`
   font-family: 'Playfair Display';
   font-style: italic;
   font-weight: 400;
+  ${BP_21} {
+    font-size: 54px;
+    line-height: 56px;
+    margin-bottom: 60px;
+  }
 `;
 
 const Ul = styled.ul`
@@ -53,6 +64,9 @@ const Ul = styled.ul`
       background: ${passion};
       border-radius: 50%;
     }
+  }
+  ${BP_21} {
+    padding: 20px 20px 40px 20px;
   }
 `;
 

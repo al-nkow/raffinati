@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
-import { grey, passion, light } from '../../../config';
+import { grey, passion, light, BP_0, BP_1, BP_21 } from '../../../config';
 
 const Image = styled.img`
   display: block;
@@ -13,6 +13,12 @@ const Wrap = styled.div`
   padding-top: 40px;
   margin-bottom: 151px;
   ${({ swap }) => (swap ? 'flex-direction: row-reverse;' : '')}
+  ${BP_1} {
+    margin-bottom: 64px;
+  }
+  ${BP_21} {
+    flex-direction: column-reverse;
+  }
 `;
 
 const Col = styled.div`
@@ -25,17 +31,42 @@ const Col = styled.div`
   &:last-child {
     ${({ swap }) => (swap ? 'padding-right: 15px' : 'padding-left: 15px')};
   }
+  ${BP_0} {
+    &:first-child {
+      padding-left: 50px;
+    }
+  }
+  ${BP_1} {
+    &:first-child {
+      ${({ swap }) => (swap ? 'padding-left: 30px' : 'padding-left: 0')};
+    }
+  }
+  ${BP_21} {
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding: 0;
+    }
+    text-align: center;
+  }
 `;
 
 const Controls = styled.div`
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   display: flex;
+  flex-wrap: wrap;
+  ${BP_21} {
+    margin-bottom: 20px;
+    justify-content: center;
+  }
 `;
 
 const ControlItem = styled.div`
   position: relative;
   cursor: pointer;
   margin-right: 40px;
+  margin-bottom: 20px;
   color: ${grey};
   transition: all 0.2s ease;
   &:after {
@@ -72,12 +103,19 @@ const Title = styled.h3`
   line-height: 56px;
   font-family: 'Playfair Display';
   font-weight: 400;
+  ${BP_21} {
+    font-size: 54px;
+  }
 `;
 
 const Description = styled.div`
   padding-right: 40px;
   line-height: 26px;
   margin-bottom: 46px;
+  ${BP_21} {
+    padding: 0;
+    margin-bottom: 20px;
+  }
 `;
 
 const Button = styled(Link)`
@@ -92,6 +130,9 @@ const Button = styled(Link)`
   text-decoration: none;
   &:hover {
     opacity: 0.9;
+  }
+  ${BP_21} {
+    margin-top: 21px;
   }
 `;
 
