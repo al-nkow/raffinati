@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import { Formik } from 'formik';
 import validate from './validate';
-import { passion, light, gray74, red } from '../../config';
+import { passion, light, gray74, red, BP_2 } from '../../config';
 
 const Overlay = styled.div`
   z-index: 1000;
@@ -126,6 +126,12 @@ const Row = styled.div`
   justify-content: space-between;
   ${FormGroup} {
     width: 48%;
+  }
+  ${BP_2} {
+    flex-direction: column;
+    ${FormGroup} {
+      width: 100%;
+    }
   }
 `;
 

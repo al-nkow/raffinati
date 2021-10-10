@@ -17,7 +17,7 @@ $order = $_POST['order'];
 $details = $_POST['details'];
 $price = $_POST['price'];
 
-$domain = 'http://raffinati.org/';
+$domain = 'http://raffinati.ru/';
 $card = '4276 5500 1723 2037';
 $orderPhone = '+7 (921) 932-80-89';
 
@@ -50,7 +50,7 @@ RAFFINATI
 Здравствуйте, $name!
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:200;font-size:16px;line-height:1.5;\">
-Вы сделали заказ на сайте <a href=\"$domain\" style=\"word-wrap:normal;color:#0a66c2;word-break:normal;white-space:nowrap;text-decoration:none\" target=\"_blank\">raffinati.org</a><br />
+Вы сделали заказ на сайте <a href=\"$domain\" style=\"word-wrap:normal;color:#0a66c2;word-break:normal;white-space:nowrap;text-decoration:none\" target=\"_blank\">raffinati.ru</a><br />
 Детали заказа: $details
 </div>
 <div style=\"margin:0;padding:0 24px 24px 24px;color:#242424;font-weight:400;font-size:20px;line-height:1.333;\">

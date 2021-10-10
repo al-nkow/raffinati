@@ -80,9 +80,8 @@ const ProfileCornice = ({ data }) => {
               {wallPrice ? `Крепление на стену: ${ceilFactor} * 250 = ${wallPrice}₽` : ''}
             </div>
           </Calculation>
-          <div>
-            Итого: {amount}₽
-            <br />
+          <div className="cost">
+            <div>Итого: {amount}₽</div>
             <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
         </Result>

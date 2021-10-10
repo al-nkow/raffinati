@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { grey, passion } from '../../config';
+import { grey, passion, BP_2 } from '../../config';
 
 const Wrap = styled.div`
   display: flex;
+  ${BP_2} {
+    flex-wrap: wrap;
+  }
 `;
 
 const Tab = styled.div`
+  min-width: 132px;
   transition: all 0.1s ease;
   cursor: pointer;
   color: ${grey};
@@ -55,6 +59,14 @@ const Tab = styled.div`
       background: none;
     }
   ` : '')}
+  ${BP_2} {
+    border: none;
+    float: left;
+    border-radius: 0;
+    &:after {
+      display: none;
+    }
+  }
 `;
 
 const Inner = styled.div`

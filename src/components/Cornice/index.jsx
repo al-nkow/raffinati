@@ -39,7 +39,7 @@ const PortiereTab = ({ option }) => {
             }}
             active={category === item.id}
           >
-            {item.title}
+            <span>{item.title}</span>
             <Cost transp={!item.price}>Стоимость<br />{item.price} руб/метр</Cost>
           </Fabric>
         ))}

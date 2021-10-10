@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { passion, grey, light, contentWidth } from '../../config';
+import { passion, grey, light, contentWidth, BP_0, BP_ipad, BP_2 } from '../../config';
 
 export const Wrap = styled.div`
   max-width: ${contentWidth}px;
@@ -20,6 +20,9 @@ export const RadioLabel = styled.label`
   ${({ large }) => (large ? `
     font-size: 20px;
   ` : '')}
+  ${BP_2} {
+    margin-bottom: 20px;
+  }
 `;
 
 export const RadioBtn = styled.div`
@@ -55,14 +58,19 @@ export const RadioBtn = styled.div`
 `;
 
 export const Head = styled.h2`
-  margin-bottom: 60px;
+  margin-bottom: 54px;
   text-align: center;
   font-size: 52px;
+  line-height: 54px;
   font-family: 'Playfair Display';
   font-weight: 400;
   i {
     font-style: italic;
     color: ${passion};
+  }
+  ${BP_2} {
+    font-size: 44px;
+    line-height: 46px;
   }
 `;
 
@@ -70,12 +78,15 @@ export const SelectBase = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 90px;
+  min-width: 120px;
+  flex-wrap: wrap;
 `;
 
 export const Fabric = styled.div`
   cursor: pointer;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   font-size: 40px;
+  line-height: 26px;
   position: relative;
   width: 30%;
   height: 369px;
@@ -84,6 +95,12 @@ export const Fabric = styled.div`
   align-items: center;
   justify-content: center;
   border: 3px solid transparent;
+  span {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    max-width: 100%;
+    text-align: center;
+  }
   ${({ active }) => (active ? `
     color: #ffffff;
     border-color: ${passion};
@@ -107,7 +124,23 @@ export const Fabric = styled.div`
   ${({ cap }) => (cap ? `
     cursor: default;
     opacity: 0;
+    ${BP_2} {
+      display: none;
+    }
   ` : '')}
+  ${BP_0} {
+    width: 32%;
+    font-size: 30px;
+    height: 300px;
+  }
+  ${BP_2} {
+    width: 48%;
+    height: 200px;
+    margin-bottom: 7px;
+    span {
+      padding: 0 5px;
+    }
+  }
 `;
 
 export const Label = styled.label`
@@ -128,6 +161,34 @@ export const Result = styled.div`
   text-align: right;
   & > div {
     flex: 1;
+  }
+  .cost {
+    button {
+      margin-top: 25px;
+    }
+  }
+  ${BP_ipad} {
+    flex-direction: column;
+    .cost {
+      margin-top: 40px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      button {
+        margin-top: -14px;
+      }
+    }
+  }
+  ${BP_2} {
+    padding-top: 20px;
+    .cost {
+      text-align: left;
+      display: block;
+      font-size: 34px;
+      button {
+        margin-top: 34px;
+      }
+    }
   }
 `;
 
@@ -152,10 +213,16 @@ export const Calculation = styled.div`
   font-weight: 400;
   font-style: italic;
   color: ${grey};
+  ${BP_2} {
+    font-size: 16px;
+    line-height: 22px;
+  }
 `;
 
-export const Button = styled.div`
-  margin-top: 25px;
+export const Button = styled.button`
+  border: none;
+  box-shadow: none;
+  outline: none;
   transition: all 0.2s ease;
   font-size: 14px;
   padding: 15px 30px;

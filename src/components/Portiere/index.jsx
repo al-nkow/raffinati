@@ -76,7 +76,7 @@ const PortiereTab = ({ option }) => {
             }}
             active={category === item.id}
           >
-            {item.title}
+            <span>{item.title}</span>
             <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
           </Fabric>
         ))}
@@ -129,9 +129,8 @@ const PortiereTab = ({ option }) => {
                   <div>Цена карниза: {width}м * {CORNICE_REG_PRICE}₽ = {corniceCost}₽</div>
                 ) : null}
               </Calculation>
-              <div>
-                Итого: {totalPrice} ₽
-                <br />
+              <div className="cost">
+                <div>Итого: {totalPrice} ₽</div>
                 <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
               </div>
             </Result>

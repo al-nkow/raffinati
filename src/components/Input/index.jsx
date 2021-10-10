@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import { grey } from '../../config';
+import { grey, BP_2 } from '../../config';
 
 const TextField = styled.input`
+box-sizing: border-box;
   border: 1px solid ${grey};
   padding: 20px;
   border-radius: 2px;
@@ -10,6 +11,9 @@ const TextField = styled.input`
   box-shadow: none;
   min-width: 360px;
   font-size: 16px;
+  ${BP_2} {
+    min-width: 100%;
+  }
 `;
 
 const Input = ({ changed, placeholder, max = 10000, value }) => {

@@ -22,6 +22,7 @@ export const BP_1 = '@media only screen and (max-width: 938px)';
 export const BP_2 = '@media only screen and (max-width: 734px)';
 export const BP_21 = '@media only screen and (max-width: 767px)';
 export const BP_3 = '@media only screen and (max-width: 400px)';
+export const BP_ipad = '@media only screen and (max-width: 768px)';
 
 export const passion = '#a82d2c';
 export const grey = '#767676';

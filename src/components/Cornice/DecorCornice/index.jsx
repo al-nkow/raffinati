@@ -141,9 +141,8 @@ const DecorCornice = ({ data }) => {
             <div>Цена карниза: {corniceCost}₽</div>
             <div>Стоимость наконечника: {tipPrice} * 2 = {tipPrice * 2}₽</div>
           </Calculation>
-          <div>
-            Итого: {amount}₽
-            <br />
+          <div className="cost">
+            <div>Итого: {amount}₽</div>
             <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
         </Result>

@@ -71,7 +71,7 @@ const ElectroCornice = ({ data }) => {
             }}
             active={params.type === item.id}
           >
-            {item.title}
+            <span>{item.title}</span>
           </Fabric>
         ))}
         <Fabric cap />
@@ -127,9 +127,8 @@ const ElectroCornice = ({ data }) => {
               Стоимость пульта: {pultCost}₽
             </div>
           </Calculation>
-          <div>
-            Итого: {amount}₽
-            <br />
+          <div className="cost">
+            <div>Итого: {amount}₽</div>
             <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
         </Result>

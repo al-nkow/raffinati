@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { grey, passion } from '../../config';
+import { grey, passion, BP_ipad, BP_2 } from '../../config';
 
 const Wrap = styled.div`
   margin-bottom: 80px;
+  ${BP_2} {
+    margin-bottom: 30px;
+  }
 `;
 
 const BlocksWrap = styled.div`
   display: flex;
   margin-bottom: 10px;
   flex-wrap: wrap;
+  ${BP_2} {
+    justify-content: space-between;
+  }
 `;
 
 const Selected = styled.div`
@@ -46,6 +52,13 @@ const ColorBlock = styled.div`
       font-family: 'Playfair Display';
     }
   ` : '')}
+  ${BP_ipad} {
+    width: 158px;
+    height: 158px;
+  }
+  ${BP_2} {
+    margin: 5px;
+  }
 `;
 
 const SelectColor = ({ options, select, value, showTitle, keyName, title }) => (

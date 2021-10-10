@@ -44,7 +44,7 @@ const RomeStandart = () => {
       </Head>
       <SelectBase>
         <Fabric url={BLACKOUT.image} active>
-          {BLACKOUT.title}
+          <span>{BLACKOUT.title}</span>
           <Cost>Стоимость<br />{BLACKOUT.price} руб/погонный метр</Cost>
         </Fabric>
       </SelectBase>
@@ -96,9 +96,8 @@ const RomeStandart = () => {
               {wallPrice ? `Крепление на стену: ${ceilFactor} * 250 = ${wallPrice}₽` : ''} */}
             </div>
           </Calculation>
-          <div>
-            Итого: {amount}₽
-            <br />
+          <div className="cost">
+            <div>Итого: {amount}₽</div>
             <Button onClick={() => toggleModal(true)}>Оформить заказ</Button>
           </div>
         </Result>

@@ -7,7 +7,7 @@ import Rome from '../Rome';
 import Tulle from '../Tulle';
 import Portiere from '../Portiere';
 import Cornice from '../Cornice';
-import { grey, text } from '../../config';
+import { grey, text, BP_2 } from '../../config';
 
 const Back = styled(Link)`
   margin-bottom: 30px;
@@ -33,6 +33,9 @@ const Back = styled(Link)`
 
 const TabContent = styled.div`
   padding: 60px 20px 100px 20px;
+  ${BP_2} {
+    padding: 40px 0 60px 0;
+  }
 `;
 
 const Calculator = ({ location }) => {
