@@ -77,14 +77,17 @@ const Slide = styled.div`
     color: #ffffff;
     text-align: center;
     font-size: 44px;
+    line-height: 38px;
     opacity: 0;
     transition: all 0.2s ease;
     text-shadow: 0 0 7px rgba(0,0,0,0.7);
     @media only screen and (max-width: 1000px) {
       font-size: 32px;
+      line-height: 32px;
     }
     @media only screen and (max-width: 530px) {
       font-size: 22px;
+      line-height: 22px;
     }
   }
   ${(props) => (props.active ? `
