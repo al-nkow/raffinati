@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
-import { Wrap as MainWrap } from 'components/Shared';
+import { Wrap } from 'components/Shared';
 import AccBlock from '../AccBlock';
 import Team from '../Team';
 // import Review from '../Review';
@@ -15,7 +15,7 @@ import icon4 from './images/icon4.svg';
 import icon5 from './images/icon5.svg';
 // import icon6 from './images/icon6.svg';
 
-const Wrap = styled(MainWrap)`
+const Last = styled.div`
   border-bottom: 2px solid ${text};
   margin-bottom: 213px;
   ${BP_21} {
@@ -129,6 +129,7 @@ const Work = ({ scrollTo }) => {
       {/* <AccBlock title="Отзывы" icon={icon6}>
         <Review />
       </AccBlock> */}
+      <Last data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" />
     </Wrap>
   );
 };

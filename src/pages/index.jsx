@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import Header from '../components/Head';
 import Main from '../components/Main';
 import Catalog from '../components/Catalog';
@@ -21,6 +24,10 @@ const IndexPage = ({ location }) => {
       document.getElementById(elemId).scrollIntoView({ behavior: 'smooth' });
     }
   }, [location]);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <Layout>

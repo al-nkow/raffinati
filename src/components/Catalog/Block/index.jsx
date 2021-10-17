@@ -147,7 +147,7 @@ const Block = ({
   const currentOption = options.find(i => i.id === active);
 
   return (
-    <Wrap swap={swap} id={id}>
+    <Wrap swap={swap} id={id} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
       <Col swap={swap}>
         <Controls>
           {options.map((item) => (

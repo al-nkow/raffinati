@@ -78,7 +78,7 @@ const AccBlock = ({
   }, [scrollTo]);
 
   return (
-    <div id={id}>
+    <div id={id} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
       <Head light={light}>
         <Image src={icon} alt="" />
         {title}
@@ -91,7 +91,7 @@ const AccBlock = ({
           </Button>
         )}
       </Head>
-      {open && children}
+      {open && <div data-aos="fade-in" data-aos-duration="500" data-aos-once="true">{children}</div>}
     </div>
   );
 };

@@ -39,15 +39,17 @@ const RomeStandart = () => {
 
   return (
     <>
-      <Head>
-        1. Выберите <i>категорию</i>
-      </Head>
-      <SelectBase>
-        <Fabric url={BLACKOUT.image} active>
-          <span>{BLACKOUT.title}</span>
-          <Cost>Стоимость<br />{BLACKOUT.price} руб/погонный метр</Cost>
-        </Fabric>
-      </SelectBase>
+      <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+        <Head>
+          1. Выберите <i>категорию</i>
+        </Head>
+        <SelectBase>
+          <Fabric url={BLACKOUT.image} active>
+            <span>{BLACKOUT.title}</span>
+            <Cost>Стоимость<br />{BLACKOUT.price} руб/погонный метр</Cost>
+          </Fabric>
+        </SelectBase>
+      </div>
       <Head>
         2. Выберите <i>цвет</i>
       </Head>

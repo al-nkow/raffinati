@@ -25,25 +25,27 @@ const PortiereTab = ({ option }) => {
 
   return (
     <>
-      <Head>
-        1. Выберите <i>вариант</i> карниза
-      </Head>
-      <SelectBase>
-        {corniceOptions.map((item) => (
-          <Fabric
-            key={item.id}
-            url={item.image}
-            onClick={() => {
-              setCategory(item.id);
-              setValues({ ...values, corniceBase: item.price });
-            }}
-            active={category === item.id}
-          >
-            <span>{item.title}</span>
-            <Cost transp={!item.price}>Стоимость<br />{item.price} руб/метр</Cost>
-          </Fabric>
-        ))}
-      </SelectBase>
+      <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+        <Head>
+          1. Выберите <i>вариант</i> карниза
+        </Head>
+        <SelectBase>
+          {corniceOptions.map((item) => (
+            <Fabric
+              key={item.id}
+              url={item.image}
+              onClick={() => {
+                setCategory(item.id);
+                setValues({ ...values, corniceBase: item.price });
+              }}
+              active={category === item.id}
+            >
+              <span>{item.title}</span>
+              <Cost transp={!item.price}>Стоимость<br />{item.price} руб/метр</Cost>
+            </Fabric>
+          ))}
+        </SelectBase>
+      </div>
       {category === 'cornice1' && <ProfileCornice data={corniceData.cornice1} />}
       {category === 'cornice2' && <DecorCornice data={corniceData.cornice2} />}
       {category === 'cornice3' && <ElectroCornice data={corniceData.cornice3} />}

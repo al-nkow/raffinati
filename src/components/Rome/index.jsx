@@ -19,16 +19,18 @@ const Rome = ({ option }) => {
   const [type, setType] = useState('order');
 
   return (
-    <div>
-      <Radio
-        options={typesList}
-        onChange={setType}
-        value={type}
-        large
-      />
+    <>
+      <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+        <Radio
+          options={typesList}
+          onChange={setType}
+          value={type}
+          large
+        />
+      </div>
       {type === 'order' ? <RomeOrder option={option} /> : null}
       {type === 'standart' ? <RomeStandart /> : null}
-    </div>
+    </>
   );
 };
 

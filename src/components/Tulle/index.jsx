@@ -58,28 +58,30 @@ const TulleTab = ({ option }) => {
 
   return (
     <div>
-      <Head>
-        1. Выберите
-        &nbsp;
-        <i>материал</i>
-      </Head>
-      <SelectBase>
-        {tulleOptions.map((item) => (
-          <Fabric
-            key={item.id}
-            url={item.image}
-            onClick={() => {
-              setColor('');
-              setCategory(item.id);
-              setValues({ ...values, base: item.price });
-            }}
-            active={category === item.id}
-          >
-            <span>{item.title}</span>
-            <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
-          </Fabric>
-        ))}
-      </SelectBase>
+      <div data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+        <Head>
+          1. Выберите
+          &nbsp;
+          <i>материал</i>
+        </Head>
+        <SelectBase>
+          {tulleOptions.map((item) => (
+            <Fabric
+              key={item.id}
+              url={item.image}
+              onClick={() => {
+                setColor('');
+                setCategory(item.id);
+                setValues({ ...values, base: item.price });
+              }}
+              active={category === item.id}
+            >
+              <span>{item.title}</span>
+              <Cost>Стоимость<br />{item.price} руб/погонный метр</Cost>
+            </Fabric>
+          ))}
+        </SelectBase>
+      </div>
       {base && category ? (
         <>
           <Head>

@@ -18,7 +18,7 @@ const Wrap = styled.div`
   }
 `;
 
-const Inner = styled(MainWrap)`
+const Last = styled.div`
   border-bottom: 2px solid ${light};
 `;
 
@@ -40,7 +40,7 @@ const Title = styled.h2`
 
 const Partners = () => (
   <Wrap>
-    <Inner>
+    <MainWrap>
       <Title id="partners">
         Сотрудничество
         <br />
@@ -51,7 +51,8 @@ const Partners = () => (
       <AccBlock title="Сделаем расчёт стоимости" icon={icon3} light blank />
       <AccBlock title="Заключаем договор" icon={icon4} light blank />
       <AccBlock title="Согласовываем с клиентом" icon={icon5} light blank />
-    </Inner>
+      <Last data-aos="fade-up" data-aos-duration="1000" data-aos-once="true" />
+    </MainWrap>
   </Wrap>
 );
 

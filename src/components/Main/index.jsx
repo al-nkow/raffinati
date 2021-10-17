@@ -56,7 +56,7 @@ const H1 = styled.h1`
 `;
 
 const Main = () => (
-  <Wrap>
+  <Wrap data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
     <H1>
       RAFFINATI
       <br />

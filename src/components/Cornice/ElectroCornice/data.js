@@ -156,8 +156,8 @@ export const pricesSlide = {
     cornice: franceSlideCorniceMap,
     pult: {
       cOne: 5300,
-      cFive: 12000,
-      cSixteen: 26000,
+      cFive: 6100,
+      // cSixteen: 26000,
     },
   },
   china: {
