@@ -193,7 +193,7 @@ const OrderModal = ({ close, details, price }) => {
 
   return (
     <Overlay>
-      <Modal>
+      <Modal data-aos="fade-down" data-aos-duration="700" data-aos-once="true">
         {errorMsg ? (
           <ErrorMessage>
             {errorMsg}

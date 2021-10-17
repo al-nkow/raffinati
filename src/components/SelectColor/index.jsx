@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { grey, passion, BP_ipad, BP_2 } from '../../config';
+import { grey, passion, BP_2 } from '../../config';
 
 const Wrap = styled.div`
   margin-bottom: 80px;
@@ -10,11 +10,24 @@ const Wrap = styled.div`
 `;
 
 const BlocksWrap = styled.div`
-  display: flex;
   margin-bottom: 10px;
-  flex-wrap: wrap;
-  ${BP_2} {
-    justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);;
+  column-gap: 10px;
+  row-gap: 10px;
+  @media only screen and (max-width: 1160px) {
+    grid-template-columns: repeat(5, 1fr);;
+  }
+  @media only screen and (max-width: 980px) {
+    grid-template-columns: repeat(4, 1fr);;
+  }
+  @media only screen and (max-width: 770px) {
+    grid-template-columns: repeat(3, 1fr);;
+  }
+  @media only screen and (max-width: 480px) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 6px;
+    row-gap: 6px;
   }
 `;
 
@@ -26,17 +39,19 @@ const Selected = styled.div`
 `;
 
 const ColorBlock = styled.div`
+  box-sizing: border-box;
   position: relative;
   cursor: pointer;
-  width: 170px;
-  height: 170px;
   border: 2px solid #ffffff;
-  margin-right: 10px;
-  margin-bottom: 10px;
   background-size: cover;
   background-position: center;
   &.active {
     border: 2px solid ${passion};
+  }
+  &:after {
+    content: "";
+    display: block;
+    padding: 50%;
   }
   &:hover {
     border: 2px solid ${passion};
@@ -52,13 +67,6 @@ const ColorBlock = styled.div`
       font-family: 'Playfair Display';
     }
   ` : '')}
-  ${BP_ipad} {
-    width: 158px;
-    height: 158px;
-  }
-  ${BP_2} {
-    margin: 5px;
-  }
 `;
 
 const SelectColor = ({ options, select, value, showTitle, keyName, title }) => (
