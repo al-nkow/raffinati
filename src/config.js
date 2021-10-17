@@ -1,18 +1,18 @@
-import romeTulle from 'images/romeTulle.png';
-import romeBlackout from 'images/romeBlackout.png';
-import romeLinen from 'images/romeLinen.png';
+import romeTulle from 'images/rome/romeTulle.png';
+import romeBlackout from 'images/rome/romeBlackout.png';
+import romeLinen from 'images/rome/romeLinen.png';
 
-import tulleVeil from 'images/tulleVeil.png';
-import tulleCrepe from 'images/tulleCrepe.png';
-import tulleLinen from 'images/tulleLinen.png';
+import tulleVeil from 'images/tulle/tulleVeil.png';
+import tulleCrepe from 'images/tulle/tulleCrepe.png';
+import tulleLinen from 'images/tulle/tulleLinen.png';
 
-import portiereBlackout from 'images/portiereBlackout.png';
-import portiereLight from 'images/portiereLight.png';
-import portiereBarhat from 'images/portiereBarhat.png';
+import portiereBlackout from 'images/portiere/portiereBlackout.png';
+import portiereLight from 'images/portiere/portiereLight.png';
+import portiereBarhat from 'images/portiere/portiereBarhat.png';
 
-import cornice1 from 'images/cornice1.jpg';
-import cornice2 from 'images/cornice2.jpeg';
-import cornice3 from 'images/cornice3.jpeg';
+import cornice1 from 'images/cornice/cornice1.jpg';
+import cornice2 from 'images/cornice/cornice2.jpeg';
+import cornice3 from 'images/cornice/cornice3.jpeg';
 
 export const contentWidth = 1170;
 
