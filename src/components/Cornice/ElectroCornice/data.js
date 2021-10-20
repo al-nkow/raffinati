@@ -131,7 +131,7 @@ export const pricesLift = {
     cornice: franceLiftCorniceMap,
     pult: {
       cOne: 5300,
-      cFive: 8000,
+      cFive: 6100,
     },
   },
   china: {
@@ -165,7 +165,7 @@ export const pricesSlide = {
     pult: {
       cOne: 2700,
       cFive: 4100,
-      cSixteen: 5200,
+      // cSixteen: 5200,
     },
   },
   russia: {
