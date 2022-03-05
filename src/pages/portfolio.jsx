@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import SEO from '../components/seo';
 import Header from '../components/Head';
 import Footer from '../components/Footer';
-import Portfolio from '../components/Portfolio';
+// import Portfolio from '../components/Portfolio';
 import Layout from '../components/Layout';
 
 const PortfolioPage = () => {
@@ -17,7 +17,7 @@ const PortfolioPage = () => {
     <Layout>
       <SEO title="Наши работы" />
       <Header />
-      <Portfolio />
+      {/* <Portfolio /> */}
       <Footer />
     </Layout>
   );

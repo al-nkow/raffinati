@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSwipeable } from 'react-swipeable';
 import styled from 'styled-components';
 import Portal from 'components/Portal';
+import { BP_1, BP_3 } from 'config';
 
 const Wrap = styled.div`
   position: fixed;
@@ -25,6 +26,20 @@ const ImgWrap = styled.img`
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
 `;
 
+const CloseBtn = styled.svg`
+  transition: all 0.1s linear;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  fill: #ffffff;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
+`;
+
 const Arrow = `
   cursor: pointer;
   width: 40px;
@@ -43,6 +58,14 @@ const Left = styled.div`
     fill: #ffffff;
     transform: rotate(-90deg);
   }
+  ${BP_1} {
+    position: absolute;
+    bottom: 20px;
+    right: 50%;
+  }
+  ${BP_3} {
+    display: none;
+  }
 `;
 
 const Right = styled.div`
@@ -51,6 +74,14 @@ const Right = styled.div`
   svg {
     fill: #ffffff;
     transform: rotate(90deg);
+  }
+  ${BP_1} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+  }
+  ${BP_3} {
+    display: none;
   }
 `;
 
@@ -107,6 +138,9 @@ const Slider = ({ images, activeIndex, slide, close }) => {
   return (
     <Portal>
       <Wrap onClick={closeHandler} className={CLOSE_SLIDER_CLASSNAME}>
+        <CloseBtn onClick={close} height="512px" style={{ enableBackground: 'new 0 0 512 512' }} viewBox="0 0 512 512" width="512px">
+          <path d="M437.5,386.6L306.9,256l130.6-130.6c14.1-14.1,14.1-36.8,0-50.9c-14.1-14.1-36.8-14.1-50.9,0L256,205.1L125.4,74.5  c-14.1-14.1-36.8-14.1-50.9,0c-14.1,14.1-14.1,36.8,0,50.9L205.1,256L74.5,386.6c-14.1,14.1-14.1,36.8,0,50.9  c14.1,14.1,36.8,14.1,50.9,0L256,306.9l130.6,130.6c14.1,14.1,36.8,14.1,50.9,0C451.5,423.4,451.5,400.6,437.5,386.6z" />
+        </CloseBtn>
         <Left onClick={prev}>
           <svg x="0px" y="0px" viewBox="0 0 487 487" style={{ enableBackground: 'new 0 0 487 487' }}>
             <g>
