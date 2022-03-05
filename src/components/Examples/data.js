@@ -37,14 +37,20 @@ const Data = [
     id: 4,
     thumb: image1Small,
     image: image1,
+    title: 'Детская для мальчика ЖК Лайф Лесная',
+    days: 14,
   }, {
     id: 5,
     thumb: image2Small,
     image: image2,
+    title: 'Оформление спальни в классическом стиле ЖК Riverside',
+    days: 21,
   }, {
     id: 6,
     thumb: image3Small,
     image: image3,
+    title: 'Оформление детской для девочки ЖК Огни Москвы',
+    days: 17,
   },
 ];
 

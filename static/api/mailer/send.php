@@ -90,12 +90,12 @@ try {
   $mail->Debugoutput = function($str, $level) {$GLOBALS['status'][] = $str;};
 
   // Настройки вашей почты
-  $mail->Host       = 'smtp.yandex.ru'; // SMTP сервера вашей почты
-  $mail->Username   = 'raffmailtest'; // Логин на почте
-  $mail->Password   = '1234567uU'; // Пароль на почте
-  $mail->SMTPSecure = 'ssl';
-  $mail->Port       = 465;
-  $mail->setFrom('raffmailtest@yandex.ru', 'RAFFINATI'); // Адрес самой почты и имя отправителя
+  $mail->Host       = ''; // SMTP сервера вашей почты
+  $mail->Username   = ''; // Логин на почте
+  $mail->Password   = ''; // Пароль на почте
+  $mail->SMTPSecure = '';
+  $mail->Port       = ;
+  $mail->setFrom('', ''); // Адрес самой почты и имя отправителя
 
   // Получатель письма
   $mail->addAddress($email);
