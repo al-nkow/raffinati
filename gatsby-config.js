@@ -18,6 +18,7 @@ module.exports = {
     },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-portal',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {

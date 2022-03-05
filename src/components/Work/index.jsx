@@ -1,7 +1,7 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import styled from 'styled-components';
-import { Wrap } from 'components/Shared';
+import { Wrap, Title } from 'components/Shared';
 import AccBlock from '../AccBlock';
 import Team from '../Team';
 // import Review from '../Review';
@@ -28,21 +28,6 @@ const SomeCmp = styled.div`
   opacity: 0.9;
   ${BP_21} {
     padding: 10px;
-  }
-`;
-
-const Title = styled.h2`
-  margin-bottom: 92px;
-  text-align: center;
-  font-size: 80px;
-  line-height: 77px;
-  font-family: 'Playfair Display';
-  font-style: italic;
-  font-weight: 400;
-  ${BP_21} {
-    font-size: 54px;
-    line-height: 56px;
-    margin-bottom: 60px;
   }
 `;
 

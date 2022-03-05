@@ -10,6 +10,7 @@ import Partners from '../components/Partners';
 import Footer from '../components/Footer';
 import Layout from '../components/Layout';
 import SEO from '../components/seo';
+import Examples from '../components/Examples';
 
 const IndexPage = ({ location }) => {
   const [scrollToElem, setScrollToElem] = useState('');
@@ -35,6 +36,7 @@ const IndexPage = ({ location }) => {
       <Header main setScrollToElem={setScrollToElem} />
       <Main />
       <Catalog />
+      <Examples />
       <Work scrollTo={scrollToElem} />
       <Partners />
       <Footer />

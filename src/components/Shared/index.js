@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { passion, grey, light, contentWidth, BP_0, BP_ipad, BP_2 } from '../../config';
+import { passion, grey, light, contentWidth, BP_0, BP_ipad, BP_2, BP_21 } from '../../config';
 
 export const Wrap = styled.div`
   max-width: ${contentWidth}px;
@@ -239,4 +239,20 @@ export const Button = styled.button`
 
 export const Section = styled.div`
   margin-bottom: 60px;
+`;
+
+export const Title = styled.h2`
+  ${({ white }) => (white ? 'color: #ffffff;' : '')}
+  margin-bottom: 92px;
+  text-align: center;
+  font-size: 80px;
+  line-height: 77px;
+  font-family: 'Playfair Display';
+  font-style: italic;
+  font-weight: 400;
+  ${BP_21} {
+    font-size: 54px;
+    line-height: 56px;
+    margin-bottom: 60px;
+  }
 `;

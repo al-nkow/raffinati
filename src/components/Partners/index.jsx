@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Wrap as MainWrap } from 'components/Shared';
+import { Wrap as MainWrap, Title } from 'components/Shared';
 import AccBlock from 'components/AccBlock';
 import { grey, light, BP_21 } from '../../config';
 
@@ -22,26 +22,10 @@ const Last = styled.div`
   border-bottom: 2px solid ${light};
 `;
 
-const Title = styled.h2`
-  color: #ffffff;
-  margin-bottom: 92px;
-  text-align: center;
-  font-size: 80px;
-  line-height: 88px;
-  font-family: 'Playfair Display';
-  font-weight: 400;
-  font-style: italic;
-  ${BP_21} {
-    font-size: 40px;
-    line-height: 56px;
-    margin-bottom: 60px;
-  }
-`;
-
 const Partners = () => (
   <Wrap>
     <MainWrap>
-      <Title id="partners">
+      <Title id="partners" white>
         Сотрудничество
         <br />
         с дизайнерами
