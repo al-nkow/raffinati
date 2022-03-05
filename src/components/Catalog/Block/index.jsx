@@ -141,13 +141,13 @@ const Block = ({
   title,
   description,
   options,
-  id,
+  queryId,
 }) => {
   const [active, setActive] = useState(options[0].id);
   const currentOption = options.find(i => i.id === active);
 
   return (
-    <Wrap swap={swap} id={id} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+    <Wrap swap={swap} id={queryId} data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
       <Col swap={swap}>
         <Controls>
           {options.map((item) => (
@@ -163,7 +163,7 @@ const Block = ({
         <Title dangerouslySetInnerHTML={{ __html: title }} />
         {description ? <Description dangerouslySetInnerHTML={{ __html: description }} /> : ''}
         <Description>{currentOption.info}</Description>
-        <Button to={`/calculator?open=${id}&option=${active}`}>Рассчитать стоимость</Button>
+        <Button to={`/calculator?open=${queryId}&option=${active}`}>Рассчитать стоимость</Button>
       </Col>
       <Col swap={swap}>
         <Image src={currentOption.image} alt="" />

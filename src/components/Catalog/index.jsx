@@ -10,6 +10,7 @@ const Catalog = () => (
         title="Римская<br />штора"
         description="Отличное дизайнерское решение для Вашего интерьера. Это тканевое полотно, которое при открытии создает волнообразные складки"
         options={romeOptions}
+        queryId="rome"
       />
     </div>
     <div id="tulle">
@@ -17,6 +18,7 @@ const Catalog = () => (
         swap
         title="Тюль"
         options={tulleOptions}
+        queryId="tulle"
       />
     </div>
     <div id="portiere">
@@ -24,6 +26,7 @@ const Catalog = () => (
         title="Портьеры"
         description="Плотные портьеры хорошо держат форму, драпируются мягкими складками и смотрятся изыскано в любом интерьере"
         options={portiereOptions}
+        queryId="portiere"
       />
     </div>
     <div id="cornice">
@@ -31,6 +34,7 @@ const Catalog = () => (
         swap
         title="Карнизы"
         options={corniceOptions}
+        queryId="cornice"
       />
     </div>
   </Wrap>

@@ -94,7 +94,7 @@ try {
   $mail->Username   = ''; // Логин на почте
   $mail->Password   = ''; // Пароль на почте
   $mail->SMTPSecure = '';
-  $mail->Port       = ;
+  $mail->Port       = 465;
   $mail->setFrom('', ''); // Адрес самой почты и имя отправителя
 
   // Получатель письма
