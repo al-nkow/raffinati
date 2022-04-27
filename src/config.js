@@ -53,14 +53,14 @@ export const romeOptions = [
     id: 'romeBlackout',
     title: 'Блэкаут',
     image: romeBlackout,
-    price: 2200,
+    price: 2450,
     info: 'Римская штора из Блэкаута отлично защитит от солнечного света, выгорания мебели и сохранит Ваш сон',
   },
   {
     id: 'romeCloth',
     title: 'Лён',
     image: romeLinen,
-    price: 1600,
+    price: 1900,
     info: 'Римская штора из портьерной ткани станет финальным штрихом и придаст помещению законченный вид',
   },
   {
@@ -77,21 +77,21 @@ export const tulleOptions = [
     id: 'tulleVeil',
     title: 'Вуаль',
     image: tulleVeil,
-    price: 600,
+    price: 800,
     info: 'Вуаль – прозрачная легкая ткань. Драпируется мягкими складками. Окно декорированное вуалью становится светлее, так как этот тонкий материал пропускает максимум света',
   },
   {
     id: 'tulleCrepe',
     title: 'Креп',
     image: tulleCrepe,
-    price: 1900,
+    price: 2100,
     info: 'Креповая ткань отлично драпируется, практически не мнется, устойчива к выцветанию, приятная на ощупь. За счет плотного переплетения нитей идеально преломляет солнечные лучи',
   },
   {
     id: 'tulleLinen',
     title: 'Лён',
     image: tulleLinen,
-    price: 1300,
+    price: 1900,
     info: 'Шторы из тюля под лен отлично подойдут для лофтовых интерьеров, а также декорирования помещений в эко стиле. Благодаря пористой структуре, материал обеспечивает постоянную циркуляцию воздуха. Главной особенностью является отсутствие блеска, а рельефная матовая поверхность придает ткани натуральный вид',
   },
 ];
@@ -101,7 +101,7 @@ export const portiereOptions = [
     id: 'portiereBlackout',
     title: 'Блэкаут',
     image: portiereBlackout,
-    price: 1900,
+    price: 2450,
     info: 'Светонепроницаемость ткани создается за счет плотного переплетения нитей: основного цвета и темного волокна. Тем самым блокирует поток солнечных лучей, обеспечивая затемнение помещения как в кинотеатре',
   },
   {
@@ -114,7 +114,7 @@ export const portiereOptions = [
     id: 'portiereVelvet',
     title: 'Бархат',
     image: portiereBarhat,
-    price: 2800,
+    price: 3400,
   },
 ];
 
@@ -142,7 +142,7 @@ export const corniceOptions = [
 
 export const TAPE_PRICE = 100; // Шторная лента цена за метр
 export const TAPE_COEF = 0.3; // Коэффициент расчета шторной ленты
-export const ROME_CORNICE_BASE_PRICE = 2200;
+export const ROME_CORNICE_BASE_PRICE = 3950;
 export const CORNICE_REG_PRICE = corniceOptions.find(i => i.id === 'cornice1').price;
 export const ROME_SEWING_BASE_PRICE = 1400;
 export const SEWING_BASE_PRICE = 800;
